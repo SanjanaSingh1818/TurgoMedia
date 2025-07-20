@@ -18,6 +18,9 @@ export default {
 			}
 		},
 		extend: {
+			fontFamily: {
+				'poppins': ['Poppins', 'sans-serif'],
+			},
 			colors: {
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
@@ -67,12 +70,12 @@ export default {
 			backgroundImage: {
 				'gradient-hero': 'var(--gradient-hero)',
 				'gradient-warm': 'var(--gradient-warm)',
-				'gradient-cinematic': 'var(--gradient-cinematic)'
+				'gradient-card': 'var(--gradient-card)'
 			},
 			boxShadow: {
-				'dramatic': 'var(--shadow-dramatic)',
-				'cinematic': 'var(--shadow-cinematic)',
-				'warm': 'var(--shadow-warm)'
+				'card': 'var(--shadow-card)',
+				'hover': 'var(--shadow-hover)',
+				'navbar': 'var(--shadow-navbar)'
 			},
 			transitionTimingFunction: {
 				'smooth': 'cubic-bezier(0.4, 0, 0.2, 1)',

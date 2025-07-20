@@ -1,5 +1,6 @@
 import Navigation from '../components/Navigation';
 import VerticalSlider from '../components/VerticalSlider';
+import ServicesSection from '../components/ServicesSection';
 import heroPhotography from '../assets/hero-photography.jpg';
 import heroVideo from '../assets/hero-video.jpg';
 import heroSocial from '../assets/hero-social.jpg';
@@ -33,7 +34,7 @@ const Index = () => {
       description: "Vi skapar inte bara innehåll – vi hanterar även dina sociala medier. Vi planerar, producerar och publicerar åt dig.",
       backgroundImage: heroSocial,
       ctaText: "Läs mer om tjänsten",
-      ctaLink: "/sociala-medier"
+      ctaLink: "/innehall-publicering"
     },
     {
       id: 4,
@@ -42,7 +43,7 @@ const Index = () => {
       description: "Framhäv dina produkter med professionella bilder som ökar försäljningen både online och i butik.",
       backgroundImage: heroProducts,
       ctaText: "Se vårt portfolio",
-      ctaLink: "/produktfoto"
+      ctaLink: "/produktfotografering"
     },
     {
       id: 5,
@@ -59,6 +60,7 @@ const Index = () => {
     <div className="relative">
       <Navigation />
       <VerticalSlider slides={slides} />
+      <ServicesSection />
     </div>
   );
 };

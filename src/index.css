@@ -2,49 +2,49 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Turgomedia Photography Design System - Cinematic & Elegant */
+/* Turgomedia Creative Agency Design System - Modern & Light */
 
 @layer base {
   :root {
-    /* Core Brand Colors - Warm Photography Tones */
-    --background: 0 0% 100%;
-    --foreground: 345 25% 15%;
+    /* Core Brand Colors - Modern Light Theme */
+    --background: 0 0% 98%;
+    --foreground: 220 15% 20%;
     
-    /* Photography Brand Colors */
-    --primary: 345 65% 45%;        /* Deep burgundy */
+    /* Modern Agency Brand Colors */
+    --primary: 220 100% 50%;       /* Bright blue */
     --primary-foreground: 0 0% 100%;
-    --primary-glow: 345 75% 55%;   /* Lighter burgundy */
+    --primary-glow: 220 85% 60%;   /* Lighter blue */
     
-    --secondary: 25 45% 65%;       /* Warm golden amber */
-    --secondary-foreground: 345 25% 15%;
+    --secondary: 30 100% 55%;      /* Orange accent */
+    --secondary-foreground: 0 0% 100%;
     
-    --accent: 220 30% 25%;         /* Rich charcoal */
-    --accent-foreground: 0 0% 95%;
+    --accent: 220 15% 25%;         /* Dark gray */
+    --accent-foreground: 0 0% 100%;
     
-    /* Cinematic Overlays */
-    --overlay-dark: 220 30% 8%;    /* Deep cinematic overlay */
+    /* Modern Overlays */
+    --overlay-dark: 220 15% 15%;   /* Professional dark overlay */
     --overlay-light: 0 0% 100%;
     
     /* UI Elements */
     --card: 0 0% 100%;
-    --card-foreground: 345 25% 15%;
+    --card-foreground: 220 15% 20%;
     --popover: 0 0% 100%;
-    --popover-foreground: 345 25% 15%;
-    --muted: 0 0% 96%;
-    --muted-foreground: 220 15% 45%;
-    --border: 220 20% 90%;
-    --input: 220 20% 94%;
-    --ring: 345 65% 45%;
+    --popover-foreground: 220 15% 20%;
+    --muted: 220 15% 95%;
+    --muted-foreground: 220 15% 55%;
+    --border: 220 15% 88%;
+    --input: 220 15% 94%;
+    --ring: 220 100% 50%;
     
-    /* Photography Gradients */
-    --gradient-hero: linear-gradient(135deg, hsl(345 65% 45% / 0.9), hsl(220 30% 25% / 0.8));
-    --gradient-warm: linear-gradient(45deg, hsl(25 45% 65% / 0.9), hsl(345 65% 45% / 0.7));
-    --gradient-cinematic: linear-gradient(180deg, hsl(220 30% 8% / 0.8), hsl(345 65% 45% / 0.6));
+    /* Modern Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(220 100% 50% / 0.9), hsl(220 15% 25% / 0.8));
+    --gradient-warm: linear-gradient(45deg, hsl(30 100% 55% / 0.9), hsl(220 100% 50% / 0.7));
+    --gradient-card: linear-gradient(135deg, hsl(220 100% 50% / 0.1), hsl(30 100% 55% / 0.1));
     
-    /* Elegant Shadows */
-    --shadow-dramatic: 0 25px 50px -12px hsl(345 65% 45% / 0.25);
-    --shadow-cinematic: 0 20px 40px -8px hsl(220 30% 8% / 0.4);
-    --shadow-warm: 0 15px 30px -8px hsl(25 45% 65% / 0.3);
+    /* Modern Shadows */
+    --shadow-card: 0 10px 25px -5px hsl(220 15% 35% / 0.1);
+    --shadow-hover: 0 20px 40px -8px hsl(220 100% 50% / 0.2);
+    --shadow-navbar: 0 4px 20px -2px hsl(220 15% 35% / 0.1);
     
     /* Animation Variables */
     --transition-smooth: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
@@ -122,6 +122,7 @@
 
   body {
     @apply bg-background text-foreground overflow-x-hidden;
+    font-family: 'Poppins', sans-serif;
   }
   
   /* Smooth scrolling for full page */

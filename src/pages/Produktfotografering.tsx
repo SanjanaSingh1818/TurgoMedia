@@ -2,7 +2,7 @@ import Navigation from '../components/Navigation';
 import { Package, Zap, Eye, ShoppingCart, Camera, Palette } from 'lucide-react';
 import heroProducts from '../assets/hero-products.jpg';
 
-const Produktfoto = () => {
+const Produktfotografering = () => {
   const portfolioItems = [
     {
       title: "Lyxklockor",
@@ -230,4 +230,4 @@ const Produktfoto = () => {
   );
 };
 
-export default Produktfoto;
+export default Produktfotografering;
