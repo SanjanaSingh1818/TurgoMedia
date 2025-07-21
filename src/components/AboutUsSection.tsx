@@ -58,7 +58,11 @@ const AboutUsSection = () => {
   }, []);
 
   return (
-    <section ref={sectionRef} className="relative py-24 px-6 overflow-hidden bg-gradient-to-br from-primary/5 via-background to-secondary/5">
+    <section 
+      id="about"
+      ref={sectionRef} 
+      className="relative py-24 px-6 overflow-hidden bg-gradient-to-br from-primary/5 via-background to-secondary/5"
+    >
       {/* Animated Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="floating-element absolute top-20 left-10 w-32 h-32 bg-primary/10 rounded-full blur-xl"></div>

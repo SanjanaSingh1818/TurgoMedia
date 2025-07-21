@@ -26,10 +26,20 @@ const Navigation = () => {
   ];
 
   const mainNavItems = [
-    { name: 'Om Oss', path: '/om-oss' },
-    { name: 'Kunder', path: '/kunder' },
-    { name: 'Kontakta Oss', path: '/kontakt' }
+    { name: 'Om Oss', path: '/#about' },
+    { name: 'Kunder', path: '/#testimonials' },
+    { name: 'Kontakta Oss', path: '/#instagram' }
   ];
+
+  const handleNavClick = (path: string) => {
+    if (path.startsWith('/#')) {
+      const sectionId = path.substring(2);
+      const element = document.getElementById(sectionId);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  };
 
   return (
     <>
@@ -73,18 +83,13 @@ const Navigation = () => {
 
               {/* Main Navigation Items */}
               {mainNavItems.map((item) => (
-                <Link
+                <button
                   key={item.path}
-                  to={item.path}
-                  className={`relative font-medium transition-colors hover:text-primary ${
-                    location.pathname === item.path ? 'text-primary' : 'text-white'
-                  }`}
+                  onClick={() => handleNavClick(item.path)}
+                  className="relative font-medium transition-colors hover:text-primary text-white"
                 >
                   {item.name}
-                  {location.pathname === item.path && (
-                    <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-primary rounded-full" />
-                  )}
-                </Link>
+                </button>
               ))}
             </div>
 
@@ -140,16 +145,16 @@ const Navigation = () => {
 
             {/* Main Items */}
             {mainNavItems.map((item) => (
-              <Link
+              <button
                 key={item.path}
-                to={item.path}
-                onClick={() => setIsOpen(false)}
-                className={`block py-3 font-medium transition-colors hover:text-primary ${
-                  location.pathname === item.path ? 'text-primary' : 'text-white'
-                }`}
+                onClick={() => {
+                  handleNavClick(item.path);
+                  setIsOpen(false);
+                }}
+                className="block py-3 font-medium transition-colors hover:text-primary text-white text-left w-full"
               >
                 {item.name}
-              </Link>
+              </button>
             ))}
 
             {/* Phone in Mobile */}

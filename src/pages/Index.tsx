@@ -3,6 +3,8 @@ import VerticalSlider from '../components/VerticalSlider';
 import ServicesSection from '../components/ServicesSection';
 import AboutUsSection from '../components/AboutUsSection';
 import TestimonialsSection from '../components/TestimonialsSection';
+import InstagramSection from '../components/InstagramSection';
+import FloatingActions from '../components/FloatingActions';
 import Footer from '../components/Footer';
 import heroPhotography from '../assets/hero-photography.jpg';
 import heroVideo from '../assets/hero-video.jpg';
@@ -66,6 +68,8 @@ const Index = () => {
       <ServicesSection />
       <AboutUsSection />
       <TestimonialsSection />
+      <InstagramSection />
+      <FloatingActions />
       <Footer />
     </div>
   );
