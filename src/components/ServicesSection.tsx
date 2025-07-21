@@ -99,6 +99,17 @@ const ServicesSection = () => {
       }
     });
 
+    // Enhanced floating elements animation
+    gsap.to('.floating-element', {
+      y: -30,
+      x: 15,
+      duration: 4,
+      ease: "power1.inOut",
+      stagger: 0.8,
+      repeat: -1,
+      yoyo: true
+    });
+
     return () => {
       ScrollTrigger.getAll().forEach(trigger => trigger.kill());
     };
@@ -111,8 +122,29 @@ const ServicesSection = () => {
   };
 
   return (
-    <section ref={sectionRef} className="py-24 px-6 bg-background">
-      <div className="container mx-auto">
+    <section id="services" ref={sectionRef} className="relative py-24 px-6 bg-gradient-to-br from-primary/5 via-background to-secondary/5 overflow-hidden">
+      {/* Enhanced Background Elements */}
+      <div className="absolute inset-0">
+        <div className="floating-element absolute top-20 left-10 w-48 h-48 bg-primary/10 rounded-full blur-2xl"></div>
+        <div className="floating-element absolute top-60 right-20 w-32 h-32 bg-secondary/10 rounded-full blur-xl"></div>
+        <div className="floating-element absolute bottom-40 left-1/4 w-64 h-64 bg-primary/5 rounded-full blur-3xl"></div>
+        <div className="floating-element absolute bottom-20 right-10 w-40 h-40 bg-secondary/8 rounded-full blur-2xl"></div>
+        
+        {/* Animated Grid Pattern */}
+        <div className="absolute inset-0 opacity-5">
+          <div className="grid grid-cols-8 grid-rows-8 h-full w-full">
+            {Array.from({ length: 64 }).map((_, i) => (
+              <div 
+                key={i} 
+                className="border border-primary/20 animate-pulse" 
+                style={{ animationDelay: `${i * 0.1}s` }}
+              />
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <div className="container mx-auto relative z-10">
         <h2 className="services-title text-5xl md:text-6xl font-bold text-center mb-16">
           <span className="bg-gradient-warm bg-clip-text text-transparent">
             Våra Tjänster

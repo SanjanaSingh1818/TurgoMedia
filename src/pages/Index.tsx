@@ -1,6 +1,9 @@
 import Navigation from '../components/Navigation';
 import VerticalSlider from '../components/VerticalSlider';
 import ServicesSection from '../components/ServicesSection';
+import AboutUsSection from '../components/AboutUsSection';
+import TestimonialsSection from '../components/TestimonialsSection';
+import Footer from '../components/Footer';
 import heroPhotography from '../assets/hero-photography.jpg';
 import heroVideo from '../assets/hero-video.jpg';
 import heroSocial from '../assets/hero-social.jpg';
@@ -61,6 +64,9 @@ const Index = () => {
       <Navigation />
       <VerticalSlider slides={slides} />
       <ServicesSection />
+      <AboutUsSection />
+      <TestimonialsSection />
+      <Footer />
     </div>
   );
 };
