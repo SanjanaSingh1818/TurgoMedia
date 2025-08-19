@@ -1,21 +1,173 @@
 import Navigation from '../components/Navigation';
+import Footer from '../components/Footer';
+import { Play, Search, MapPin, TrendingUp, Globe } from 'lucide-react';
+import heroImage from '../assets/hero3.jpg'; // add an SEO-related hero image
+import seo1 from '../assets/sm1.mp4';
+import seo2 from '../assets/sm2.mp4';
+import seo3 from '../assets/sm3.mp4';
 
 const SeoLokalSynlighet = () => {
+  const portfolioItems = [
+    {
+      title: "Lokal restaurang SEO",
+      description: "Optimering som ökade synlighet på Google Maps och lockade fler kunder",
+      video: seo1,
+      stats: "70% fler bokningar"
+    },
+    {
+      title: "E-handels SEO",
+      description: "Organisk optimering som ökade trafiken till webbshopen",
+      video: seo2,
+      stats: "50% ökad organisk trafik"
+    },
+    {
+      title: "Företags SEO",
+      description: "SEO-strategi för konsultföretag som ökade leads via Google",
+      video: seo3,
+      stats: "3x fler inkommande förfrågningar"
+    }
+  ];
+
+  const services = [
+    {
+      icon: <Search className="w-8 h-8" />,
+      title: "On-page SEO",
+      description: "Optimering av titlar, meta-taggar, innehåll och struktur för bättre ranking."
+    },
+    {
+      icon: <MapPin className="w-8 h-8" />,
+      title: "Lokal SEO",
+      description: "Hjälper ditt företag synas på Google Maps och i lokala sökresultat."
+    },
+    {
+      icon: <TrendingUp className="w-8 h-8" />,
+      title: "SEO-strategi",
+      description: "Datadrivna strategier för att öka din organiska synlighet och trafik."
+    },
+    {
+      icon: <Globe className="w-8 h-8" />,
+      title: "Teknisk SEO",
+      description: "Förbättringar av laddningstider, mobilanpassning och webbplatsstruktur."
+    }
+  ];
+
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen flex flex-col bg-white text-gray-900">
+      {/* Global Header */}
       <Navigation />
-      <div className="pt-24">
-        <div className="container mx-auto px-6 py-16">
-          <h1 className="text-4xl md:text-6xl font-bold text-center mb-8">
-            <span className="bg-gradient-warm bg-clip-text text-transparent">
-              SEO & Lokal synlighet
-            </span>
-          </h1>
-          <p className="text-xl text-center text-muted-foreground max-w-3xl mx-auto">
-            Vi optimerar din hemsida för Google och hjälper dig nå fler kunder i din närhet.
+
+      {/* Hero Section */}
+      <section className="relative min-h-screen flex items-center justify-center">
+        <div 
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: `url(${heroImage})` }}
+        />
+        <div className="absolute inset-0 bg-black/50" />
+
+        <div className="relative z-10 text-center text-white max-w-4xl mx-auto px-6">
+          <h1 className="text-5xl md:text-6xl font-bold mb-6">SEO & Lokal Synlighet</h1>
+          <p className="text-2xl mb-8">Bli hittad av rätt kunder, på rätt plats och i rätt tid</p>
+          <p className="text-xl mb-12 text-gray-200 max-w-3xl mx-auto">
+            Vi hjälper företag att ranka högre på Google, förbättra lokal synlighet och driva mer trafik som leder till fler kunder och affärer.
           </p>
+          <a 
+            href="https://wa.me/923214567890" 
+            target="_blank" 
+            rel="noopener noreferrer"
+          >
+            <button className="px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-full shadow-lg transition">
+              Kontakta oss idag
+            </button>
+          </a>
         </div>
-      </div>
+      </section>
+
+      {/* Services Section */}
+      <section className="py-24 px-6 bg-gray-50">
+        <div className="container mx-auto">
+          <h2 className="text-5xl font-bold text-center mb-6">
+            Våra SEO-tjänster
+          </h2>
+          <p className="text-center text-lg text-gray-600 mb-16 max-w-2xl mx-auto">
+            Från lokal SEO till teknisk optimering – vi erbjuder en helhetslösning för att förbättra din digitala synlighet och öka dina resultat.
+          </p>
+          
+          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            {services.map((service, index) => (
+              <div 
+                key={index} 
+                className="bg-white rounded-2xl p-8 border border-gray-200 hover:shadow-lg hover:-translate-y-2 transition-all duration-300"
+              >
+                <div className="text-blue-600 mb-4">{service.icon}</div>
+                <h3 className="text-2xl font-bold mb-4 text-gray-900">{service.title}</h3>
+                <p className="text-gray-700 text-lg">{service.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Portfolio Section */}
+      <section className="py-24 px-6 bg-gray-100">
+        <div className="container mx-auto">
+          <h2 className="text-5xl font-bold text-center mb-6">
+            Våra SEO-resultat
+          </h2>
+          <p className="text-center text-lg text-gray-600 mb-16 max-w-2xl mx-auto">
+            Här är några exempel på företag vi hjälpt att växa genom SEO och lokal synlighet.
+          </p>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            {portfolioItems.map((item, index) => (
+              <div key={index} className="group cursor-pointer">
+                <div className="relative overflow-hidden rounded-2xl">
+                  <video 
+                    src={item.video}
+                    className="w-full h-64 object-cover transition-transform duration-700 group-hover:scale-110"
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
+                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <Play className="w-16 h-16 text-white" />
+                  </div>
+                  <div className="absolute bottom-0 left-0 right-0 p-6 text-white z-10">
+                    <h3 className="text-xl font-bold mb-2">{item.title}</h3>
+                    <p className="text-gray-200 mb-2">{item.description}</p>
+                    <p className="text-yellow-400 font-semibold">{item.stats}</p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-24 px-6 bg-white">
+        <div className="container mx-auto text-center">
+          <h2 className="text-4xl font-bold mb-8">
+            Vill du dominera sökresultaten?
+          </h2>
+          <p className="text-xl text-gray-600 mb-12 max-w-2xl mx-auto">
+            Kontakta oss för en gratis SEO-analys. Vi hjälper dig att bli synlig för rätt kunder, på rätt plats och i rätt tid.
+          </p>
+          <a 
+            href="https://wa.me/923214567890" 
+            target="_blank" 
+            rel="noopener noreferrer"
+          >
+            <button className="px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-full shadow-lg transition">
+              Få kostnadsfri SEO-analys
+            </button>
+          </a>
+        </div>
+      </section>
+
+      {/* Global Footer */}
+      <Footer />
     </div>
   );
 };

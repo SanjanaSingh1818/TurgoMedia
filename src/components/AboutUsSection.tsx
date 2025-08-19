@@ -74,66 +74,81 @@ const AboutUsSection = () => {
       <div className="container mx-auto relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center max-w-7xl mx-auto">
           {/* Content */}
-          <div ref={contentRef} className="space-y-8">
-            <div className="space-y-4">
-              <p className="text-sm font-semibold text-primary tracking-wider uppercase">Om Oss</p>
-              <h2 className="text-4xl md:text-5xl font-bold leading-tight">
-                Utforska Våra Tjänster och{' '}
-                <span className="bg-gradient-warm bg-clip-text text-transparent">
-                  Stärk Din Digitala Närvaro
-                </span>
-              </h2>
-            </div>
-            
-            <p className="text-lg text-muted-foreground leading-relaxed">
-              Vi är en digital byrå baserad i Göteborg som hjälper företag att växa genom strategisk 
-              marknadsföring, SEO, sociala medier och kreativt innehåll. Med över ett decennium av 
-              erfarenhet har vi hjälpt både lokala och internationella varumärken att synas online och nå 
-              sina mål.
-            </p>
+         <div ref={contentRef} className="space-y-8">
+  <div className="space-y-4">
+    {/* Horizontal Line + Om Oss */}
+    <div className="flex items-center gap-2">
+      <div className="w-12 h-0.5 bg-black opacity-100"></div>
+      <p className="text-sm font-bold text-[#5E4B8B] tracking-wider uppercase">Om Oss</p>
+    </div>
 
-            <div className="space-y-4">
-              <div className="flex items-center gap-4">
-                <CheckCircle className="w-6 h-6 text-primary flex-shrink-0" />
-                <span className="text-foreground font-medium">Skräddarsydda strategier för varje kund.</span>
-              </div>
-              <div className="flex items-center gap-4">
-                <CheckCircle className="w-6 h-6 text-primary flex-shrink-0" />
-                <span className="text-foreground font-medium">Resultatdriven marknadsföring med mätbara resultat.</span>
-              </div>
-            </div>
+    {/* Heading */}
+    <h2 className="text-4xl md:text-5xl font-bold leading-tight">
+      Utforska Våra Tjänster och{' '}
+      <span className="bg-gradient-warm bg-clip-text text-transparent">
+        Stärk Din Digitala Närvaro
+      </span>
+    </h2>
+  </div>
 
-            <div className="flex gap-4 pt-4">
-              <button className="px-8 py-3 bg-primary text-primary-foreground rounded-lg font-semibold hover:bg-primary/90 transition-all duration-300 hover:scale-105 hover:shadow-hover">
-                Kom Igång
-              </button>
-              <button className="px-8 py-3 border border-border text-foreground rounded-lg font-semibold hover:bg-muted transition-all duration-300 hover:scale-105">
-                Läs Mer
-              </button>
-            </div>
-          </div>
+  {/* Description */}
+  <p className="text-lg text-muted-foreground leading-relaxed">
+    Vi är en digital byrå baserad i Göteborg som hjälper företag att växa genom strategisk 
+    marknadsföring, SEO, sociala medier och kreativt innehåll. Med över ett decennium av 
+    erfarenhet har vi hjälpt både lokala och internationella varumärken att synas online och nå 
+    sina mål.
+  </p>
+
+  {/* Key Features */}
+  <div className="space-y-4">
+    <div className="flex items-center gap-4">
+      <CheckCircle className="w-6 h-6 text-[#5E4B8B] flex-shrink-0" />
+      <span className="text-foreground font-medium">
+        Skräddarsydda strategier för varje kund.
+      </span>
+    </div>
+    <div className="flex items-center gap-4">
+      <CheckCircle className="w-6 h-6 text-[#5E4B8B] flex-shrink-0" />
+      <span className="text-foreground font-medium">
+        Resultatdriven marknadsföring med mätbara resultat.
+      </span>
+    </div>
+  </div>
+
+  {/* CTA Buttons */}
+  <div className="flex gap-4 pt-4">
+    <button className="px-8 py-3 bg-[#5E4B8B] text-primary-foreground rounded-lg font-semibold hover:bg-[#ff8c19] transition-all duration-300 hover:scale-105 hover:shadow-hover">
+      Kom Igång
+    </button>
+    <button className="px-8 py-3 border border-border text-foreground rounded-lg font-semibold hover:bg-[#ff8c19] transition-all duration-300 hover:scale-105">
+      Läs Mer
+    </button>
+  </div>
+</div>
+
 
           {/* Image Section */}
-          <div ref={imageRef} className="relative">
-            <div className="relative rounded-3xl overflow-hidden bg-gradient-to-br from-primary/10 to-secondary/10 p-8">
-              {/* Placeholder for professional image */}
-              <div className="aspect-square bg-gradient-to-br from-primary/20 to-secondary/20 rounded-2xl flex items-center justify-center">
-                <div className="text-center space-y-4">
-                  <div className="w-32 h-32 bg-primary/30 rounded-full mx-auto flex items-center justify-center">
-                    <div className="w-20 h-20 bg-primary/50 rounded-full"></div>
-                  </div>
-                  <p className="text-muted-foreground">Professional Team Photo</p>
-                </div>
-              </div>
-              
-              {/* Experience Badge */}
-              <div ref={badgeRef} className="absolute -bottom-4 -right-4 bg-secondary text-secondary-foreground rounded-full w-24 h-24 flex flex-col items-center justify-center font-bold shadow-hover">
-                <span className="text-2xl">10+</span>
-                <span className="text-xs">ÅRS</span>
-                <span className="text-xs">ERFARENHET</span>
-              </div>
-            </div>
-          </div>
+          {/* Image Section */}
+<div ref={imageRef} className="relative">
+  <div className="relative rounded-3xl overflow-hidden bg-gradient-to-br from-primary/10 to-secondary/10 p-8">
+    {/* Replaced placeholder with actual image */}
+    <div className="aspect-square bg-gradient-to-br from-primary/20 to-secondary/20 rounded-2xl overflow-hidden">
+      <img 
+        src="/src/assets/images/about.jpg" 
+        alt="Professional Team" 
+        className="w-full h-full object-cover"
+      />
+    </div>
+
+    {/* Experience Badge */}
+    <div ref={badgeRef} className="absolute -bottom-4 -right-4 bg-secondary text-secondary-foreground rounded-full w-24 h-24 flex flex-col items-center justify-center font-bold shadow-hover">
+      <span className="text-2xl">10+</span>
+      <span className="text-xs">ÅRS</span>
+      <span className="text-xs">ERFARENHET</span>
+    </div>
+  </div>
+</div>
+
         </div>
       </div>
     </section>

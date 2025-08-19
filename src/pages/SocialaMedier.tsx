@@ -1,112 +1,107 @@
 import Navigation from '../components/Navigation';
-import { Calendar, BarChart3, MessageCircle, Users2, Camera, TrendingUp } from 'lucide-react';
-import heroSocial from '../assets/hero-social.jpg';
+import Footer from '../components/Footer';
+import { Play, Instagram, Youtube, Twitter, Facebook } from 'lucide-react';
+import heroImage from '../assets/social-hero.jpg'; // <-- Add a social hero image
+import sm1 from '../assets/sm1.mp4';
+import sm2 from '../assets/sm2.mp4';
+import sm3 from '../assets/sm3.mp4';
 
 const SocialaMedier = () => {
   const portfolioItems = [
     {
-      title: "Fitness Studio",
-      description: "3 månaders kampanj som ökade medlemsantalet med 120%",
-      image: heroSocial,
-      stats: "120% ökning medlemmar",
-      platform: "Instagram & Facebook"
+      title: "Instagram Reel",
+      description: "Kreativ reel som nådde 500k visningar på en vecka",
+      video: sm1,
+      stats: "500k visningar"
     },
     {
-      title: "Restaurang Kedja",
-      description: "Månadsvis innehållsproduktion med 89% engagemang",
-      image: heroSocial,
-      stats: "89% engagement rate",
-      platform: "Instagram & TikTok"
+      title: "YouTube Shorts",
+      description: "Engagerande shorts för tech-varumärke som ökade prenumeranter",
+      video: sm2,
+      stats: "+10k prenumeranter"
     },
     {
-      title: "E-handel Mode",
-      description: "Influencer kampanj som genererade 2.3M visningar",
-      image: heroSocial,
-      stats: "2.3M visningar",
-      platform: "Instagram & YouTube"
+      title: "TikTok Kampanj",
+      description: "Trendande TikTok-video som genererade viralt genomslag",
+      video: sm3,
+      stats: "1M+ visningar"
     }
   ];
 
   const services = [
     {
-      icon: <Calendar className="w-8 h-8" />,
-      title: "Innehållsplanering",
-      description: "Strategisk planering av inlägg för maximalt engagemang och räckvidd"
+      icon: <Instagram className="w-8 h-8" />,
+      title: "Instagram Reels",
+      description: "Korta, snygga reels som engagerar och stärker ditt varumärke."
     },
     {
-      icon: <Camera className="w-8 h-8" />,
-      title: "Fotografi & Design",
-      description: "Professionell produktion av bilder, grafik och videor för sociala medier"
+      icon: <Youtube className="w-8 h-8" />,
+      title: "YouTube Shorts",
+      description: "Optimerade shorts för att öka visningar och prenumeranter."
     },
     {
-      icon: <MessageCircle className="w-8 h-8" />,
-      title: "Community Management",
-      description: "Hantering av kommentarer, meddelanden och community-byggande"
+      icon: <Facebook className="w-8 h-8" />,
+      title: "Facebook Stories",
+      description: "Fånga uppmärksamheten med kreativa stories för din målgrupp."
     },
     {
-      icon: <BarChart3 className="w-8 h-8" />,
-      title: "Analys & Rapportering",
-      description: "Månadsvis rapportering med insikter och rekommendationer för tillväxt"
-    },
-    {
-      icon: <Users2 className="w-8 h-8" />,
-      title: "Influencer Marketing",
-      description: "Samarbeten med relevanta influencers för att nå nya målgrupper"
-    },
-    {
-      icon: <TrendingUp className="w-8 h-8" />,
-      title: "Annonsering",
-      description: "Strategiska betalda kampanjer för ökad räckvidd och konverteringar"
+      icon: <Twitter className="w-8 h-8" />,
+      title: "TikTok Kampanjer",
+      description: "Skapa virala TikTok-videor som når en bred publik."
     }
   ];
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen flex flex-col bg-white text-gray-900">
+      {/* Global Header */}
       <Navigation />
-      
+
       {/* Hero Section */}
-      <section className="relative h-screen flex items-center justify-center">
+      <section className="relative min-h-screen flex items-center justify-center">
         <div 
           className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: `url(${heroSocial})` }}
+          style={{ backgroundImage: `url(${heroImage})` }}
         />
-        <div className="cinematic-overlay" />
-        
+        <div className="absolute inset-0 bg-black/50" />
+
         <div className="relative z-10 text-center text-white max-w-4xl mx-auto px-6">
-          <h1 className="hero-title mb-6">
-            Sociala Medier
-          </h1>
-          <p className="hero-subtitle mb-8">
-            Innehåll och publicering
+          <h1 className="text-5xl md:text-6xl font-bold mb-6">Sociala Medier</h1>
+          <p className="text-2xl mb-8">Reels • Shorts • TikTok • Stories</p>
+          <p className="text-xl mb-12 text-gray-200 max-w-3xl mx-auto">
+            Skapa engagerande sociala medievideor som når ut, bygger varumärke och blir virala. 
+            Vi producerar allt från Instagram Reels till YouTube Shorts och TikTok-trender.
           </p>
-          <p className="text-xl mb-12 text-white/90 max-w-3xl mx-auto">
-            Vi skapar inte bara innehåll – vi hanterar även dina sociala medier. Vi planerar, 
-            producerar och publicerar inlägg åt dig, så att du kan fokusera på verksamheten 
-            medan vi sköter din digitala närvaro.
-          </p>
-          <button className="btn-cinematic text-white rounded-full">
-            Starta din resa
-          </button>
+          <a 
+            href="https://wa.me/923214567890" 
+            target="_blank" 
+            rel="noopener noreferrer"
+          >
+            <button className="px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-full shadow-lg transition">
+              Kontakta oss idag
+            </button>
+          </a>
         </div>
       </section>
 
-      {/* Services Grid */}
-      <section className="py-24 px-6">
+      {/* Services Section */}
+      <section className="py-24 px-6 bg-gray-50">
         <div className="container mx-auto">
-          <h2 className="text-5xl font-bold text-center mb-16">
-            <span className="bg-gradient-warm bg-clip-text text-transparent">
-              Komplett Social Media-hantering
-            </span>
+          <h2 className="text-5xl font-bold text-center mb-6">
+            Våra Sociala Medietjänster
           </h2>
+          <p className="text-center text-lg text-gray-600 mb-16 max-w-2xl mx-auto">
+            Vi erbjuder ett brett utbud av tjänster för sociala medier – allt från korta reels till fullständiga kampanjer. 
+          </p>
           
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             {services.map((service, index) => (
-              <div key={index} className="reveal-up bg-card rounded-2xl p-8 border border-border/20 hover:shadow-warm transition-all duration-300">
-                <div className="text-primary mb-4">
-                  {service.icon}
-                </div>
-                <h3 className="text-xl font-bold mb-4">{service.title}</h3>
-                <p className="text-muted-foreground">{service.description}</p>
+              <div 
+                key={index} 
+                className="bg-white rounded-2xl p-8 border border-gray-200 hover:shadow-lg hover:-translate-y-2 transition-all duration-300"
+              >
+                <div className="text-blue-600 mb-4">{service.icon}</div>
+                <h3 className="text-2xl font-bold mb-4 text-gray-900">{service.title}</h3>
+                <p className="text-gray-700 text-lg">{service.description}</p>
               </div>
             ))}
           </div>
@@ -114,63 +109,37 @@ const SocialaMedier = () => {
       </section>
 
       {/* Portfolio Section */}
-      <section className="py-24 px-6 bg-muted/30">
+      <section className="py-24 px-6 bg-gray-100">
         <div className="container mx-auto">
-          <h2 className="text-5xl font-bold text-center mb-16">
-            <span className="bg-gradient-warm bg-clip-text text-transparent">
-              Framgångshistorier
-            </span>
+          <h2 className="text-5xl font-bold text-center mb-6">
+            Vårt Portfolio
           </h2>
-          
+          <p className="text-center text-lg text-gray-600 mb-16 max-w-2xl mx-auto">
+            Här är några av våra framgångsrika sociala medieprojekt.
+          </p>
+
           <div className="grid md:grid-cols-3 gap-8">
             {portfolioItems.map((item, index) => (
-              <div key={index} className="reveal-scale">
-                <div className="bg-card rounded-2xl overflow-hidden border border-border/20 hover:shadow-warm transition-all duration-300">
-                  <div className="relative h-48">
-                    <img 
-                      src={item.image}
-                      alt={item.title}
-                      className="w-full h-full object-cover"
-                    />
-                    <div className="absolute top-4 right-4 bg-primary text-white px-3 py-1 rounded-full text-sm font-medium">
-                      {item.platform}
-                    </div>
+              <div key={index} className="group cursor-pointer">
+                <div className="relative overflow-hidden rounded-2xl">
+                  <video 
+                    src={item.video}
+                    className="w-full h-64 object-cover transition-transform duration-700 group-hover:scale-110"
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
+                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <Play className="w-16 h-16 text-white" />
                   </div>
-                  <div className="p-6">
-                    <h3 className="text-xl font-bold mb-3">{item.title}</h3>
-                    <p className="text-muted-foreground mb-4">{item.description}</p>
-                    <div className="flex items-center justify-between">
-                      <span className="text-primary font-semibold">{item.stats}</span>
-                      <TrendingUp className="w-5 h-5 text-primary" />
-                    </div>
+                  <div className="absolute bottom-0 left-0 right-0 p-6 text-white z-10">
+                    <h3 className="text-xl font-bold mb-2">{item.title}</h3>
+                    <p className="text-gray-200 mb-2">{item.description}</p>
+                    <p className="text-yellow-400 font-semibold">{item.stats}</p>
                   </div>
                 </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Process Section */}
-      <section className="py-24 px-6">
-        <div className="container mx-auto">
-          <h2 className="text-4xl font-bold text-center mb-16">
-            Så fungerar vårt samarbete
-          </h2>
-          
-          <div className="grid md:grid-cols-4 gap-8">
-            {[
-              { step: "01", title: "Strategi", desc: "Vi analyserar din målgrupp och skapar en skräddarsydd strategi" },
-              { step: "02", title: "Produktion", desc: "Vi producerar högkvalitativt innehåll anpassat för varje plattform" },
-              { step: "03", title: "Publicering", desc: "Vi publicerar och optimerar inlägg för bästa resultat" },
-              { step: "04", title: "Analys", desc: "Vi mäter resultat och justerar strategin för kontinuerlig förbättring" }
-            ].map((item, index) => (
-              <div key={index} className="text-center">
-                <div className="w-16 h-16 bg-primary rounded-full flex items-center justify-center text-white font-bold text-xl mx-auto mb-4">
-                  {item.step}
-                </div>
-                <h3 className="text-xl font-bold mb-3">{item.title}</h3>
-                <p className="text-muted-foreground">{item.desc}</p>
               </div>
             ))}
           </div>
@@ -178,19 +147,28 @@ const SocialaMedier = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 px-6 bg-gradient-hero text-white">
+      <section className="py-24 px-6 bg-white">
         <div className="container mx-auto text-center">
           <h2 className="text-4xl font-bold mb-8">
-            Låt oss bygga ditt varumärke tillsammans
+            Vill du växa på sociala medier?
           </h2>
-          <p className="text-xl mb-12 max-w-2xl mx-auto text-white/90">
-            Kontakta oss för en kostnadsfri konsultation där vi diskuterar din social media-strategi.
+          <p className="text-xl text-gray-600 mb-12 max-w-2xl mx-auto">
+            Kontakta oss för en kostnadsfri konsultation. Vi hjälper dig att skapa virala videor som driver engagemang och resultat.
           </p>
-          <button className="bg-white text-primary font-semibold px-8 py-4 rounded-full hover:bg-white/90 transition-colors">
-            Boka kostnadsfri konsultation
-          </button>
+          <a 
+            href="https://wa.me/923214567890" 
+            target="_blank" 
+            rel="noopener noreferrer"
+          >
+            <button className="px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-full shadow-lg transition">
+              Få kostnadsfri offert
+            </button>
+          </a>
         </div>
       </section>
+
+      {/* Global Footer */}
+      <Footer />
     </div>
   );
 };

@@ -1,216 +1,171 @@
-import { useEffect, useRef } from 'react';
-import { Link } from 'react-router-dom';
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { Video, Users, Camera, Globe, Search } from 'lucide-react';
+import React, { useEffect, useRef } from "react";
+import gsap from "gsap";
+import { FaCubes, FaLifeRing, FaDatabase } from "react-icons/fa";
+import { Link } from "react-router-dom"; // 👈 import Link
 
-gsap.registerPlugin(ScrollTrigger);
+// Service List with updated Swedish content and links
+const services = [
+  {
+    title: "Videoproduktion för sociala medier & annonser",
+    desc: "Korta och slagkraftiga videor som engagerar, bygger varumärke och driver resultat.",
+    img: "/src/assets/images/video.jpg",
+    icon: <FaCubes />,
+    link: "/videoproduktion", // 👈 service route
+  },
+  {
+    title: "Innehåll och publicering på sociala medier",
+    desc: "Vi skapar inte bara innehåll – vi hanterar även dina sociala medier. Vi planerar, producerar och publicerar inlägg åt dig, så att du kan fokusera på verksamheten medan vi sköter din digitala närvaro.",
+    img: "/src/assets/images/photography.jpg",
+    icon: <FaLifeRing />,
+    link: "/innehallpublicering",
+  },
+  {
+    title: "Produktfotografering",
+    desc: "Professionella bilder som framhäver dina produkter och ökar försäljningen både online och i butik.",
+    img: "/src/assets/images/social.jpg",
+    icon: <FaDatabase />,
+    link: "/productphotography",
+  },
+  {
+    title: "Webbdesign & utveckling",
+    desc: "Responsiva och användarvänliga hemsidor anpassade efter ditt varumärke och målgrupp.",
+    img: "/src/assets/images/seo.jpg",
+    icon: <FaCubes />,
+    link: "/webdesign",
+  },
+  {
+    title: "SEO & Lokal synlighet",
+    desc: "Vi optimerar din hemsida för att synas högre i Google och hjälper ditt företag att rankas bättre lokalt och bli mer synligt för närliggande kunder.",
+    img: "/src/assets/images/webdesign.jpg",
+    icon: <FaLifeRing />,
+    link: "/seolokalsynlighet",
+  },
+];
 
-const ServicesSection = () => {
-  const sectionRef = useRef<HTMLDivElement>(null);
-  const cardsRef = useRef<HTMLAnchorElement[]>([]);
-
-  const services = [
-    {
-      id: 1,
-      icon: <Video className="w-12 h-12" />,
-      title: "Video Produktion",
-      description: "Korta och slagkraftiga videor som engagerar, bygger varumärke och driver resultat.",
-      link: "/videoproduktion",
-      featured: true
-    },
-    {
-      id: 2,
-      icon: <Users className="w-12 h-12" />,
-      title: "Sociala Medier Hantering",
-      description: "Vi planerar, producerar och publicerar innehåll – så att du kan fokusera på din verksamhet.",
-      link: "/innehall-publicering"
-    },
-    {
-      id: 3,
-      icon: <Camera className="w-12 h-12" />,
-      title: "Produkt Fotografering",
-      description: "Professionella bilder som framhäver dina produkter och ökar försäljningen online och i butik.",
-      link: "/produktfotografering"
-    },
-    {
-      id: 4,
-      icon: <Globe className="w-12 h-12" />,
-      title: "Webbdesign & Utveckling",
-      description: "Responsiva, användarvänliga hemsidor anpassade efter ditt varumärke och målgrupp.",
-      link: "/webbdesign"
-    },
-    {
-      id: 5,
-      icon: <Search className="w-12 h-12" />,
-      title: "SEO & Lokal Synlighet",
-      description: "Vi optimerar din hemsida för Google och hjälper dig nå fler kunder i din närhet.",
-      link: "/seo-lokal-synlighet"
-    }
-  ];
+// Service Card Component
+const ServiceCard = ({ title, desc, img, icon, link }) => {
+  const cardRef = useRef(null);
+  const overlayRef = useRef(null);
+  const textRef = useRef(null);
 
   useEffect(() => {
-    if (!sectionRef.current) return;
+    const card = cardRef.current;
+    const overlay = overlayRef.current;
+    const textBg = textRef.current;
 
-    // Animate section title
-    gsap.fromTo('.services-title', 
-      { 
-        y: 50, 
-        opacity: 0 
-      },
-      {
-        y: 0,
-        opacity: 1,
-        duration: 1,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: "top 80%",
-          end: "bottom 20%",
-          toggleActions: "play none none reverse"
-        }
-      }
-    );
+    const onEnter = () => {
+      gsap.to(overlay, { opacity: 0.6, duration: 0.4, ease: "power2.out" });
+      gsap.to(textBg, {
+        backgroundColor: "#5f4c8c",
+        color: "#ffffff",
+        duration: 0.4,
+        ease: "power2.out",
+      });
+    };
 
-    // Animate service cards
-    cardsRef.current.forEach((card, index) => {
-      if (card) {
-        gsap.fromTo(card,
-          {
-            y: 80,
-            opacity: 0,
-            scale: 0.9
-          },
-          {
-            y: 0,
-            opacity: 1,
-            scale: 1,
-            duration: 0.8,
-            delay: index * 0.1,
-            ease: "power3.out",
-            scrollTrigger: {
-              trigger: card,
-              start: "top 85%",
-              end: "bottom 20%",
-              toggleActions: "play none none reverse"
-            }
-          }
-        );
-      }
-    });
+    const onLeave = () => {
+      gsap.to(overlay, { opacity: 0, duration: 0.4, ease: "power2.out" });
+      gsap.to(textBg, {
+        backgroundColor: "#ffffff",
+        color: "#1f2937",
+        duration: 0.4,
+        ease: "power2.out",
+      });
+    };
 
-    // Enhanced floating elements animation
-    gsap.to('.floating-element', {
-      y: -30,
-      x: 15,
-      duration: 4,
-      ease: "power1.inOut",
-      stagger: 0.8,
-      repeat: -1,
-      yoyo: true
-    });
+    card.addEventListener("mouseenter", onEnter);
+    card.addEventListener("mouseleave", onLeave);
 
     return () => {
-      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+      card.removeEventListener("mouseenter", onEnter);
+      card.removeEventListener("mouseleave", onLeave);
     };
   }, []);
 
-  const addToRefs = (el: HTMLAnchorElement | null) => {
-    if (el && !cardsRef.current.includes(el)) {
-      cardsRef.current.push(el);
-    }
-  };
-
   return (
-    <section id="services" ref={sectionRef} className="relative py-24 px-6 bg-gradient-to-br from-primary/5 via-background to-secondary/5 overflow-hidden">
-      {/* Enhanced Background Elements */}
-      <div className="absolute inset-0">
-        <div className="floating-element absolute top-20 left-10 w-48 h-48 bg-primary/10 rounded-full blur-2xl"></div>
-        <div className="floating-element absolute top-60 right-20 w-32 h-32 bg-secondary/10 rounded-full blur-xl"></div>
-        <div className="floating-element absolute bottom-40 left-1/4 w-64 h-64 bg-primary/5 rounded-full blur-3xl"></div>
-        <div className="floating-element absolute bottom-20 right-10 w-40 h-40 bg-secondary/8 rounded-full blur-2xl"></div>
-        
-        {/* Animated Grid Pattern */}
-        <div className="absolute inset-0 opacity-5">
-          <div className="grid grid-cols-8 grid-rows-8 h-full w-full">
-            {Array.from({ length: 64 }).map((_, i) => (
-              <div 
-                key={i} 
-                className="border border-primary/20 animate-pulse" 
-                style={{ animationDelay: `${i * 0.1}s` }}
-              />
-            ))}
-          </div>
+    <Link to={link}> {/* 👈 wrap card with Link */}
+      <div
+        ref={cardRef}
+        className="relative rounded-lg overflow-hidden shadow-lg transition-all duration-300 cursor-pointer"
+      >
+        {/* Image */}
+        <img src={img} alt={title} className="w-full h-56 object-cover" />
+
+        {/* Overlay */}
+        <div
+          ref={overlayRef}
+          className="absolute inset-0 bg-[#2d2d30] opacity-0 pointer-events-none z-10 transition-opacity"
+        />
+
+        {/* Icon */}
+        <div className="absolute top-0 right-0 m-4 w-10 h-10 bg-white rounded-lg flex items-center justify-center shadow-md text-[#5f4c8c] text-lg z-20">
+          {icon}
+        </div>
+
+        {/* Text Block */}
+        <div
+          ref={textRef}
+          className="bg-white text-gray-800 p-5 z-20 relative transition-colors duration-300 h-[30vh]"
+        >
+          <h3 className="font-semibold text-lg">{title}</h3>
+          <p className="text-sm mt-2">{desc}</p>
         </div>
       </div>
+    </Link>
+  );
+};
 
-      <div className="container mx-auto relative z-10">
-        <h2 className="services-title text-5xl md:text-6xl font-bold text-center mb-16">
-          <span className="bg-gradient-warm bg-clip-text text-transparent">
-            Våra Tjänster
-          </span>
-        </h2>
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+// Section Component with Floating Bubbles
+export default function ServiceSection() {
+  const bgRef = useRef(null);
+
+  return (
+    <section className="py-16 bg-gray-50 relative overflow-hidden">
+      {/* Floating Bubbles */}
+      <div ref={bgRef} className="absolute inset-0 z-0 pointer-events-none">
+        {Array.from({ length: 30 }).map((_, i) => {
+          const size = 20 + Math.random() * 40;
+          const top = Math.random() * 100;
+          const left = Math.random() * 100;
+          const opacity = 0.4 + Math.random() * 0.4;
+          const color = i % 2 === 0 ? "#F5C08F" : "#C0C0D8";
+
+          return (
+            <div
+              key={i}
+              className="bubble absolute rounded-full blur-md animate-pulse"
+              style={{
+                width: `${size}px`,
+                height: `${size}px`,
+                top: `${top}%`,
+                left: `${left}%`,
+                backgroundColor: color,
+                opacity: opacity,
+              }}
+            />
+          );
+        })}
+      </div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
+        <div className="text-center mb-12">
+          <h2 className="text-4xl md:text-5xl font-bold leading-tight mb-4 relative z-10">
+            <span className="text-black">Vi erbjuder </span>
+            <span className="bg-gradient-warm bg-clip-text text-transparent">
+              överlägsna tjänster
+            </span>
+          </h2>
+
+          <p className="mt-2 text-gray-600 max-w-xl mx-auto">
+            Din pålitliga källa för nyheter, reportage och aktuella händelser – alltid uppdaterad, alltid relevant.
+          </p>
+        </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service, index) => (
-            <Link
-              key={service.id}
-              to={service.link}
-              ref={addToRefs}
-              className={`group relative overflow-hidden rounded-2xl transition-all duration-700 hover:scale-105 ${
-                service.featured ? 'md:col-span-2 md:row-span-1' : ''
-              }`}
-            >
-              {/* Background with gradient */}
-              <div className="absolute inset-0 bg-gradient-card opacity-20" />
-              
-              {/* Card Content */}
-              <div className={`relative z-10 h-full bg-card/80 backdrop-blur-sm border border-border/20 rounded-2xl p-8 hover:shadow-hover transition-all duration-300 ${
-                service.featured ? 'md:p-12' : ''
-              }`}>
-                {/* Icon */}
-                <div className={`text-primary mb-6 transition-transform duration-300 group-hover:scale-110 ${
-                  service.featured ? 'mb-8' : ''
-                }`}>
-                  {service.icon}
-                </div>
-                
-                {/* Title */}
-                <h3 className={`font-bold mb-4 transition-transform duration-300 group-hover:translate-y-[-4px] ${
-                  service.featured ? 'text-3xl md:text-4xl mb-6' : 'text-xl md:text-2xl'
-                }`}>
-                  {service.title}
-                </h3>
-                
-                {/* Description */}
-                <p className={`text-muted-foreground mb-6 transition-transform duration-300 group-hover:translate-y-[-4px] ${
-                  service.featured ? 'text-lg md:text-xl' : 'text-base'
-                }`}>
-                  {service.description}
-                </p>
-                
-                {/* CTA */}
-                <div className="flex items-center text-primary font-semibold transition-transform duration-300 group-hover:translate-x-2">
-                  <span className="mr-2">Läs mer</span>
-                  <svg 
-                    className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" 
-                    fill="none" 
-                    viewBox="0 0 24 24" 
-                    stroke="currentColor"
-                  >
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                  </svg>
-                </div>
-              </div>
-              
-              {/* Hover Effect Border */}
-              <div className="absolute inset-0 border-2 border-primary/0 rounded-2xl transition-colors duration-300 group-hover:border-primary/30" />
-            </Link>
+            <ServiceCard key={index} {...service} />
           ))}
         </div>
       </div>
     </section>
   );
-};
-
-export default ServicesSection;
+}

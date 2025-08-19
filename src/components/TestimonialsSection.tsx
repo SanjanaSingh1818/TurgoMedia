@@ -1,237 +1,251 @@
-import { useEffect, useRef, useState } from 'react';
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { useEffect, useRef } from 'react';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Autoplay, Navigation, Pagination } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import gsap from 'gsap';
+import {
+  FaFacebookF,
+  FaInstagram,
+  FaYoutube,
+  FaLinkedinIn,
+  FaTiktok,
+} from 'react-icons/fa';
 
-gsap.registerPlugin(ScrollTrigger);
+const testimonials = [
+  {
+    logo: '/src/assets/Pizzeria-logo.png',
+    name: 'Pizzeria Mums',
+    role: 'Restaurangvarumärke',
+    text: 'Turgomedia är stolta över att stödja Pizzeria Mums med engagerande videoinnehåll...',
+    link: 'https://pizzeriamums.se',
+  },
+  {
+    logo: '/src/assets/sultan-logo.jpg',
+    name: 'Sultan Grill',
+    role: 'Mellanösternrestaurang',
+    text: 'Vi samarbetar med Sultan Grill för att stärka deras varumärkesidentitet...',
+    link: 'https://sultangrill.se',
+  },
+  {
+    logo: '/src/assets/Mobeltvatt-logo.png',
+    name: 'Illos Möbelrekond',
+    role: 'Möbeltvätt',
+    text: 'Turgomedia arbetar nära med Illos Möbelrekond för att öka deras synlighet...',
+    link: 'https://offert.illosmobelrekond.se/mobeltvatt',
+  },
+  {
+    logo: '/src/assets/cityflytt-logo.png',
+    name: 'City Flytt',
+    role: 'Flytttjänster',
+    text: 'Vårt team samarbetade med City Flytt för att designa om deras webbplats...',
+    link: 'https://cityflytt.se',
+  },
+  {
+    logo: '/src/assets/arcus-logo.webp',
+    name: 'Arcus Transport',
+    role: 'Transportföretag',
+    text: 'Turgomedia samarbetar med Arcus Transport för att stärka deras digitala närvaro...',
+    link: 'https://arcustransport.se',
+  },
+  {
+    logo: '/src/assets/karoon-logo.png',
+    name: 'Karoon',
+    role: 'Startup-varumärke',
+    text: 'Vi har levererat ett komplett digitalt lanseringspaket till Karoon...',
+    link: 'https://karoon.se',
+  },
+   {
+   logo: '/src/assets/logo1.png',
+name: 'Dunder Doner',
+role: 'Matleveransplattform',  // "Food delivery platform" in Swedish
+text: 'Vårt team samarbetade med Dunder Doner för att skapa en modern digital närvaro...',
+link: 'https://dunderdoner.se',
 
-const TestimonialsSection = () => {
-  const sectionRef = useRef<HTMLDivElement>(null);
-  const cardsRef = useRef<HTMLDivElement[]>([]);
-  const [currentIndex, setCurrentIndex] = useState(0);
+  },
+     {
+logo: '/src/assets/Steammaster-logo.png',
+name: 'Steammaster',
+role: 'Städtjänster',  // "Cleaning services" in Swedish
+text: 'Vårt team samarbetade med Steammaster. Resultatet speglar deras fokus på pålitliga och högkvalitativa städtjänster...',
+link: 'https://steammaster.se',
+  },
+       {
+logo: '/src/assets/gril.avif',
+name: 'Grillogården',
+role: 'Restaurang',  // "Restaurant" in Swedish
+text: 'Vårt team samarbetade med Grillogården för att skapa en modern digital närvaro...',
+link: 'https://grillogarden.se',
+  },
 
-  const testimonials = [
-    {
-      id: 1,
-      company: "City Flytt",
-      category: "Flyttjänster",
-      description: "Vi team samarbetade med City Flytt för att designa om deras webbplats och förbättra konverteringsgraden genom en modern och användarvänlig upplevelse.",
-      website: "Www.Cityflytt.Se",
-      logo: "🏷️",
-      bgColor: "from-orange-50 to-red-50"
-    },
-    {
-      id: 2,
-      company: "Arcus Transport",
-      category: "Transportföretag",
-      description: "Turgomedia samarbetar med Arcus Transport för att stärka deras digitala närvaro genom professionell produktfotografering och SEO-insatser.",
-      website: "Www.Arcustransport.Se",
-      logo: "🚚",
-      bgColor: "from-orange-50 to-amber-50"
-    },
-    {
-      id: 3,
-      company: "Karoon",
-      category: "Startup-varumärke",
-      description: "Vi har levererat ett komplett digitalt lanseringspaket till Karoon – inklusiv varumärkesstrategi, innehållskapande och videomarknadsföring – för att hjälpa dem sticka ut på marknaden.",
-      website: "Www.Karoon.Se",
-      logo: "🌿",
-      bgColor: "from-green-50 to-emerald-50"
-    },
-    {
-      id: 4,
-      company: "Pizzeria Mums",
-      category: "Restaurangvarumärke",
-      description: "Turgomedia är stolta över att stödja Pizzeria Mums med engagerande videoinnehåll som markant har ökat deras synlighet på sociala medier och pizzaförsäljning.",
-      website: "Www.Pizzeriamums.Se",
-      logo: "🍕",
-      bgColor: "from-red-50 to-orange-50"
-    },
-    {
-      id: 5,
-      company: "Sultan Grill",
-      category: "Mellanösternrestaurang",
-      description: "Vi samarbetar med Sultan Grill för att stärka deras varumärkesidentitet genom strategiskt innehåll och effektiv digital storytelling.",
-      website: "Www.Sultangrill.Se",
-      logo: "🥙",
-      bgColor: "from-amber-50 to-yellow-50"
-    },
-    {
-      id: 6,
-      company: "Illos Möbelrekond",
-      category: "Möbeltvätt",
-      description: "Turgomedia arbetar nära med Illos Möbelrekond för att öka deras synlighet och lokala räckvidd genom Google-optimering och riktad annonsering.",
-      website: "Www.Illosmöbelrekond.Se",
-      logo: "🛋️",
-      bgColor: "from-blue-50 to-indigo-50"
-    }
-  ];
+       {
+logo: '/src/assets/CHIXEE.png',
+name: 'Chixee',
+role: 'Restaurang',  // "Restaurant" in Swedish
+text: 'Vi samarbetade med Chixee för att lyfta fram deras passion för krispig fried chicken och en unik matupplevelse...',
+link: 'https://chixee.se',
+  },
+         {
+logo: '/src/assets/hem.png',
+name: 'Hälsosam Hem',
+role: 'Hemstädning',  // "Home cleaning" in Swedish
+text: 'Vi samarbetade med Hälsosam Hem för att lyfta fram deras pålitliga och professionella städtjänster...',
+link: 'https://halsosamthem.se',
+  },
+  {
+    logo: '/src/assets/logo2.png',
+name: 'Almedals Flyttexpress',
+role: 'Flyttfirma',  // "Moving company" in Swedish
+text: 'Vi samarbetade med Almedals Flyttexpress för att stärka deras digitala närvaro...',
+link: 'https://almedalsflyttexpress.se',
+  },
+  {
+logo: '/src/assets/kalimera-logo.png',
+name: 'Kalimerameze Tapas',
+role: 'Restaurang',  // "Restaurant" in Swedish
+text: 'Vi samarbetade med Kalimerameze Tapas för att fånga deras medelhavsmagi och bjudande matupplevelse...', 
+link: 'https://kalimeramezetapas.se',
 
-  const addToRefs = (el: HTMLDivElement | null) => {
-    if (el && !cardsRef.current.includes(el)) {
-      cardsRef.current.push(el);
-    }
-  };
+  },
+];
+
+const socialIcons = [
+  FaFacebookF,
+  FaInstagram,
+  FaYoutube,
+  FaLinkedinIn,
+  FaTiktok,
+];
+
+export default function TestimonialSection() {
+  const bgRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (!sectionRef.current) return;
-
-    // Title animation
-    gsap.fromTo('.testimonials-title',
-      { y: 50, opacity: 0 },
-      {
-        y: 0,
-        opacity: 1,
-        duration: 1,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: "top 80%",
-          toggleActions: "play none none reverse"
-        }
-      }
-    );
-
-    // Cards stagger animation
-    gsap.fromTo(cardsRef.current,
-      { y: 80, opacity: 0, scale: 0.9 },
-      {
-        y: 0,
-        opacity: 1,
-        scale: 1,
-        duration: 0.8,
-        stagger: 0.2,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: "top 70%",
-          toggleActions: "play none none reverse"
-        }
-      }
-    );
-
-    return () => {
-      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
-    };
+    const icons = bgRef.current?.querySelectorAll('.bubble');
+    if (icons) {
+      icons.forEach((icon) => {
+        gsap.to(icon, {
+          y: -150 - Math.random() * 100,
+          repeat: -1,
+          duration: 8 + Math.random() * 4,
+          ease: 'none',
+          delay: Math.random() * 5,
+          yoyo: false,
+        });
+      });
+    }
   }, []);
 
-  const nextTestimonial = () => {
-    setCurrentIndex((prev) => (prev + 1) % testimonials.length);
-  };
-
-  const prevTestimonial = () => {
-    setCurrentIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
-  };
-
   return (
-    <section 
-      id="testimonials"
-      ref={sectionRef} 
-      className="relative py-24 px-6 bg-gradient-to-br from-purple-600 via-purple-700 to-purple-800 overflow-hidden"
+    <section
+        id="testimonials"
+      className="relative z-10 py-20 px-6 text-center text-white bg-gradient-to-br from-[#e5ceb8] to-[#aeaacb] overflow-hidden"
     >
-      {/* Background Pattern */}
-      <div className="absolute inset-0">
-        <div className="absolute top-20 left-10 w-64 h-64 bg-white/5 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-20 right-10 w-80 h-80 bg-pink-500/10 rounded-full blur-3xl"></div>
-      </div>
-
-      <div className="container mx-auto relative z-10">
-        <div className="text-center mb-16">
-          <h2 className="testimonials-title text-5xl md:text-6xl font-bold mb-6 text-white">
-            Träffa Våra Kunder
-          </h2>
-          <p className="text-xl text-white/80 max-w-3xl mx-auto">
-            Turgomedia samarbetar med innovativa varumärken inom flera branscher för att skapa 
-            digitala framgångshistorier.
-          </p>
-        </div>
-
-        {/* Carousel for all screen sizes */}
-        <div className="relative max-w-7xl mx-auto">
-          {/* Cards Container */}
-          <div className="overflow-hidden rounded-3xl">
-            <div 
-              className="flex transition-transform duration-500 ease-out"
-              style={{ 
-                transform: `translateX(-${currentIndex * (100 / (window.innerWidth >= 768 ? 3 : 1))}%)`,
-                width: `${testimonials.length * (100 / (window.innerWidth >= 768 ? 3 : 1))}%`
+      {/* Floating Social Icons */}
+      <div
+        ref={bgRef}
+        className="absolute inset-0 z-0 pointer-events-none"
+      >
+        {Array.from({ length: 20 }).map((_, i) => {
+          const IconComponent = socialIcons[i % socialIcons.length];
+          const size = 24 + Math.random() * 24;
+          return (
+            <div
+              key={i}
+              className="bubble absolute text-white/60"
+              style={{
+                fontSize: `${size}px`,
+                top: `${Math.random() * 100}%`,
+                left: `${Math.random() * 100}%`,
+                opacity: 0.4 + Math.random() * 0.6,
               }}
             >
-              {testimonials.map((testimonial, index) => (
-                <div
-                  key={testimonial.id}
-                  ref={addToRefs}
-                  className="w-full md:w-1/3 px-4 flex-shrink-0"
-                >
-                  <div className={`group relative bg-gradient-to-br ${testimonial.bgColor} rounded-3xl p-8 hover:scale-105 transition-all duration-500 hover:shadow-2xl cursor-pointer h-full`}>
-                    {/* Logo */}
-                    <div className="text-6xl mb-6 text-center opacity-80 group-hover:scale-110 transition-transform duration-300">
-                      {testimonial.logo}
-                    </div>
-                    
-                    {/* Category */}
-                    <p className="text-sm font-semibold text-purple-600 mb-2 text-center">
-                      {testimonial.category}
-                    </p>
-                    
-                    {/* Company Name */}
-                    <h3 className="text-2xl font-bold text-center mb-4 group-hover:text-purple-600 transition-colors duration-300">
-                      {testimonial.company}
-                    </h3>
-                    
-                    {/* Description */}
-                    <p className="text-gray-700 mb-6 leading-relaxed text-center text-sm">
-                      {testimonial.description}
-                    </p>
-                    
-                    {/* Website */}
-                    <div className="text-center">
-                      <span className="text-purple-600 font-semibold hover:underline transition-all duration-300">
-                        {testimonial.website}
-                      </span>
-                    </div>
-
-                    {/* Hover Effect */}
-                    <div className="absolute inset-0 border-2 border-purple-400/0 rounded-3xl group-hover:border-purple-400/30 transition-colors duration-300"></div>
-                  </div>
-                </div>
-              ))}
+              <IconComponent />
             </div>
-          </div>
+          );
+        })}
+      </div>
 
-          {/* Navigation Arrows */}
-          <button
-            onClick={prevTestimonial}
-            className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white p-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 z-10"
-          >
-            <ChevronLeft className="w-6 h-6 text-purple-600" />
-          </button>
-          
-          <button
-            onClick={nextTestimonial}
-            className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white p-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 z-10"
-          >
-            <ChevronRight className="w-6 h-6 text-purple-600" />
-          </button>
+      {/* Content */}
+<h2 className="text-4xl md:text-5xl font-bold leading-tight mb-4 relative z-10">
+  <span className="text-black">Träffa Våra </span>
+  <span className="bg-gradient-warm bg-clip-text text-transparent">
+    Kunder
+  </span>
+</h2>
 
-          {/* Dots Indicator */}
-          <div className="flex justify-center gap-2 mt-8">
-            {Array.from({ length: Math.ceil(testimonials.length / (window.innerWidth >= 768 ? 3 : 1)) }).map((_, index) => (
-              <button
-                key={index}
-                onClick={() => setCurrentIndex(index)}
-                className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                  index === currentIndex 
-                    ? 'bg-white scale-125' 
-                    : 'bg-white/50 hover:bg-white/75'
-                }`}
-              />
-            ))}
-          </div>
+
+      <p className="text-lg max-w-xl mx-auto text-[#4c5663] mb-12 relative z-10">
+        Turgomedia samarbetar med innovativa varumärken inom flera branscher för att skapa digitala framgångshistorier.
+      </p>
+
+      <div className="relative z-10 max-w-6xl mx-auto">
+        <Swiper
+          modules={[Autoplay, Navigation, Pagination]}
+          spaceBetween={32}
+          slidesPerView={1}
+          breakpoints={{
+            640: { slidesPerView: 1 },
+            768: { slidesPerView: 2 },
+            1024: { slidesPerView: 3 },
+          }}
+          autoplay={{
+            delay: 3000,
+            disableOnInteraction: false,
+            pauseOnMouseEnter: true,
+          }}
+          navigation={{
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+          }}
+          pagination={{ clickable: true, el: '.custom-pagination' }}
+          loop
+        >
+          {testimonials.map((t, i) => (
+            <SwiperSlide key={i}>
+              <div
+                className="bg-white text-gray-800 shadow-lg p-6 flex flex-col justify-between mx-4 rounded-xl"
+                style={{
+                  height: '360px',
+                  clipPath: 'polygon(9% 0, 100% 0%, 90% 100%, 0% 100%)',
+                  WebkitClipPath: 'polygon(9% 0, 100% 0%, 90% 100%, 0% 100%)',
+                }}
+              >
+                <div className="mb-4 text-center">
+                  <img src={t.logo} alt={t.name} className="h-16 mx-auto object-contain" />
+                  <p className="text-sm text-gray-500 mt-2">{t.role}</p>
+                </div>
+                <h4 className="text-lg font-semibold mb-2">{t.name}</h4>
+                <p className="text-sm leading-relaxed flex-grow">{t.text}</p>
+                <a
+                  href={t.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm text-blue-600 mt-4 inline-block"
+                >
+                  {t.link.replace('https://', '')}
+                </a>
+              </div>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+
+        {/* Pagination */}
+        <div className="custom-pagination mt-8 flex justify-center gap-2 relative z-10" />
+
+        {/* Navigation Arrows */}
+        <div className="swiper-button-prev z-20 w-10 h-10 bg-white/30 hover:bg-white/50 text-white rounded-full flex items-center justify-center absolute -left-6 top-1/2 -translate-y-1/2">
+          <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
+          </svg>
+        </div>
+        <div className="swiper-button-next z-20 w-10 h-10 bg-white/30 hover:bg-white/50 text-white rounded-full flex items-center justify-center absolute -right-6 top-1/2 -translate-y-1/2">
+          <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+          </svg>
         </div>
       </div>
     </section>
   );
-};
-
-export default TestimonialsSection;
+}

@@ -153,10 +153,13 @@
     @apply absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/60;
   }
   
-  .cinematic-overlay {
-    background: var(--gradient-cinematic);
-    @apply absolute inset-0;
-  }
+.cinematic-overlay {
+  position: absolute; /* not fixed */
+  inset: 0;
+  background: rgba(0,0,0,0.5); /* or gradient */
+  z-index: 1;
+}
+
   
   /* Button Variants */
   .btn-cinematic {

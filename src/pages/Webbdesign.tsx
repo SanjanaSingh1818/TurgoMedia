@@ -1,154 +1,106 @@
 import Navigation from '../components/Navigation';
-import { Monitor, Smartphone, Zap, Search, Code, Palette } from 'lucide-react';
-import heroWeb from '../assets/hero-web.jpg';
+import Footer from '../components/Footer';
+import { Play, Monitor, Palette, Smartphone, Globe } from 'lucide-react';
+import heroImage from '../assets/hero2.jpg'; // Add a nice web design hero image
+import web1 from '../assets/photo1.mp4';
+import web2 from '../assets/photo2.mp4';
+import web3 from '../assets/photo3.mp4';
 
-const Webbdesign = () => {
+const WebDesign = () => {
   const portfolioItems = [
     {
-      title: "E-handel Plattform",
-      description: "Modern e-handelssajt med 180% konverteringsökning",
-      image: heroWeb,
-      stats: "180% konverteringsökning",
-      tech: "React, Node.js, Stripe",
-      url: "www.example-store.se"
+      title: "E-handelswebb",
+      description: "Modern e-handelsdesign som ökade kundernas köpupplevelse",
+      video: web1,
+      stats: "40% ökad försäljning"
     },
     {
-      title: "Restaurang Kedja",
-      description: "Responsiv webbsajt med onlinebeställningar",
-      image: heroWeb,
-      stats: "300% online-beställningar",
-      tech: "WordPress, WooCommerce",
-      url: "www.restaurant-chain.se"
+      title: "Företagswebbplats",
+      description: "Ren och professionell design för ett konsultbolag",
+      video: web2,
+      stats: "Stärkt varumärkesidentitet"
     },
     {
-      title: "Konsultföretag",
-      description: "Professionell företagshemsida med bokningssystem",
-      image: heroWeb,
-      stats: "250% fler bokningar",
-      tech: "Next.js, TypeScript",
-      url: "www.consulting-firm.se"
-    },
-    {
-      title: "Fitness Studio",
-      description: "Medlemsportal med schema och betalningar",
-      image: heroWeb,
-      stats: "95% medlemsnöjdhet",
-      tech: "Vue.js, Firebase",
-      url: "www.fitness-studio.se"
+      title: "Responsiv Design",
+      description: "Mobilanpassad design för startup som ökade engagemanget",
+      video: web3,
+      stats: "60% fler mobilanvändare"
     }
   ];
 
   const services = [
     {
       icon: <Monitor className="w-8 h-8" />,
-      title: "Responsiv Webbdesign",
-      description: "Webbsidor som fungerar perfekt på alla enheter och skärmstorlekar"
-    },
-    {
-      icon: <Code className="w-8 h-8" />,
-      title: "Utveckling & Programmering",
-      description: "Skräddarsydda lösningar med modern teknik och bästa praxis"
-    },
-    {
-      icon: <Search className="w-8 h-8" />,
-      title: "SEO-Optimering",
-      description: "Teknisk SEO från start för bättre synlighet i sökmotorer"
-    },
-    {
-      icon: <Zap className="w-8 h-8" />,
-      title: "Prestanda-optimering",
-      description: "Snabba laddningstider för bättre användarupplevelse"
-    },
-    {
-      icon: <Smartphone className="w-8 h-8" />,
-      title: "Mobile-First Design",
-      description: "Designade först för mobil för optimal användarupplevelse"
+      title: "UI/UX Design",
+      description: "Användarvänliga och intuitiva gränssnitt som förbättrar kundupplevelsen."
     },
     {
       icon: <Palette className="w-8 h-8" />,
-      title: "UX/UI Design",
-      description: "Användarvänliga interfaces som konverterar besökare till kunder"
+      title: "Grafisk Webbdesign",
+      description: "Attraktiv och modern design som stärker ditt varumärke."
+    },
+    {
+      icon: <Smartphone className="w-8 h-8" />,
+      title: "Responsiv Design",
+      description: "Optimerad för alla enheter – mobil, surfplatta och dator."
+    },
+    {
+      icon: <Globe className="w-8 h-8" />,
+      title: "E-handel & Företagswebb",
+      description: "Skräddarsydda lösningar för både småföretag och stora varumärken."
     }
   ];
 
-  const technologies = [
-    { name: "React", desc: "Modern frontend-utveckling" },
-    { name: "Next.js", desc: "Full-stack React framework" },
-    { name: "WordPress", desc: "Flexibelt CMS system" },
-    { name: "Node.js", desc: "Backend-utveckling" },
-    { name: "TypeScript", desc: "Typ-säker kod" },
-    { name: "Tailwind CSS", desc: "Utility-first CSS" }
-  ];
-
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen flex flex-col bg-white text-gray-900">
+      {/* Global Header */}
       <Navigation />
-      
+
       {/* Hero Section */}
-      <section className="relative h-screen flex items-center justify-center">
+      <section className="relative min-h-screen flex items-center justify-center">
         <div 
           className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: `url(${heroWeb})` }}
+          style={{ backgroundImage: `url(${heroImage})` }}
         />
-        <div className="cinematic-overlay" />
-        
+        <div className="absolute inset-0 bg-black/50" />
+
         <div className="relative z-10 text-center text-white max-w-4xl mx-auto px-6">
-          <h1 className="hero-title mb-6">
-            Webbdesign
-          </h1>
-          <p className="hero-subtitle mb-8">
-            & utveckling
+          <h1 className="text-5xl md:text-6xl font-bold mb-6">Webbdesign</h1>
+          <p className="text-2xl mb-8">UI/UX, E-handel & företagswebbplatser</p>
+          <p className="text-xl mb-12 text-gray-200 max-w-3xl mx-auto">
+            Vi skapar moderna, responsiva och användarvänliga webbplatser som engagerar, bygger förtroende och driver resultat.
           </p>
-          <p className="text-xl mb-12 text-white/90 max-w-3xl mx-auto">
-            Responsiva och användarvänliga hemsidor anpassade efter ditt varumärke och målgrupp. 
-            Vi skapar webbsidor som konverterar besökare till kunder.
-          </p>
-          <button className="btn-cinematic text-white rounded-full">
-            Se våra projekt
-          </button>
+          <a 
+            href="https://wa.me/923214567890" 
+            target="_blank" 
+            rel="noopener noreferrer"
+          >
+            <button className="px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-full shadow-lg transition">
+              Kontakta oss idag
+            </button>
+          </a>
         </div>
       </section>
 
-      {/* Services Grid */}
-      <section className="py-24 px-6">
+      {/* Services Section */}
+      <section className="py-24 px-6 bg-gray-50">
         <div className="container mx-auto">
-          <h2 className="text-5xl font-bold text-center mb-16">
-            <span className="bg-gradient-warm bg-clip-text text-transparent">
-              Våra Webbtjänster
-            </span>
+          <h2 className="text-5xl font-bold text-center mb-6">
+            Våra Webbdesign-tjänster
           </h2>
+          <p className="text-center text-lg text-gray-600 mb-16 max-w-2xl mx-auto">
+            Från UI/UX till kompletta företagswebbplatser – vi erbjuder allt du behöver för att skapa en professionell digital närvaro.
+          </p>
           
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             {services.map((service, index) => (
-              <div key={index} className="reveal-up bg-card rounded-2xl p-8 border border-border/20 hover:shadow-warm transition-all duration-300">
-                <div className="text-primary mb-4">
-                  {service.icon}
-                </div>
-                <h3 className="text-xl font-bold mb-4">{service.title}</h3>
-                <p className="text-muted-foreground">{service.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Technologies Section */}
-      <section className="py-24 px-6 bg-muted/30">
-        <div className="container mx-auto">
-          <h2 className="text-4xl font-bold text-center mb-16">
-            Tekniker vi behärskar
-          </h2>
-          
-          <div className="grid md:grid-cols-3 lg:grid-cols-6 gap-6">
-            {technologies.map((tech, index) => (
-              <div key={index} className="text-center reveal-scale">
-                <div className="bg-card rounded-xl p-6 border border-border/20 hover:shadow-warm transition-all duration-300">
-                  <div className="w-12 h-12 bg-primary rounded-lg flex items-center justify-center text-white font-bold text-lg mx-auto mb-3">
-                    {tech.name.charAt(0)}
-                  </div>
-                  <h3 className="font-bold mb-2">{tech.name}</h3>
-                  <p className="text-muted-foreground text-sm">{tech.desc}</p>
-                </div>
+              <div 
+                key={index} 
+                className="bg-white rounded-2xl p-8 border border-gray-200 hover:shadow-lg hover:-translate-y-2 transition-all duration-300"
+              >
+                <div className="text-blue-600 mb-4">{service.icon}</div>
+                <h3 className="text-2xl font-bold mb-4 text-gray-900">{service.title}</h3>
+                <p className="text-gray-700 text-lg">{service.description}</p>
               </div>
             ))}
           </div>
@@ -156,91 +108,37 @@ const Webbdesign = () => {
       </section>
 
       {/* Portfolio Section */}
-      <section className="py-24 px-6">
+      <section className="py-24 px-6 bg-gray-100">
         <div className="container mx-auto">
-          <h2 className="text-5xl font-bold text-center mb-16">
-            <span className="bg-gradient-warm bg-clip-text text-transparent">
-              Våra Webbprojekt
-            </span>
+          <h2 className="text-5xl font-bold text-center mb-6">
+            Portfolio
           </h2>
-          
-          <div className="grid md:grid-cols-2 gap-12">
+          <p className="text-center text-lg text-gray-600 mb-16 max-w-2xl mx-auto">
+            Ett urval av våra senaste webbdesignprojekt som hjälpt företag att växa online.
+          </p>
+
+          <div className="grid md:grid-cols-3 gap-8">
             {portfolioItems.map((item, index) => (
-              <div key={index} className="reveal-scale group">
-                <div className="bg-card rounded-2xl overflow-hidden border border-border/20 hover:shadow-warm transition-all duration-300">
-                  <div className="relative h-64 overflow-hidden">
-                    <img 
-                      src={item.image}
-                      alt={item.title}
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-                    <div className="absolute bottom-4 left-4 text-white">
-                      <div className="text-sm opacity-80">{item.url}</div>
-                    </div>
+              <div key={index} className="group cursor-pointer">
+                <div className="relative overflow-hidden rounded-2xl">
+                  <video 
+                    src={item.video}
+                    className="w-full h-64 object-cover transition-transform duration-700 group-hover:scale-110"
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
+                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <Play className="w-16 h-16 text-white" />
                   </div>
-                  <div className="p-8">
-                    <h3 className="text-2xl font-bold mb-3">{item.title}</h3>
-                    <p className="text-muted-foreground mb-4">{item.description}</p>
-                    <div className="flex flex-wrap gap-2 mb-4">
-                      {item.tech.split(', ').map((technology, techIndex) => (
-                        <span key={techIndex} className="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm font-medium">
-                          {technology}
-                        </span>
-                      ))}
-                    </div>
-                    <div className="flex items-center justify-between">
-                      <span className="text-primary font-semibold">{item.stats}</span>
-                      <Monitor className="w-5 h-5 text-primary" />
-                    </div>
+                  <div className="absolute bottom-0 left-0 right-0 p-6 text-white z-10">
+                    <h3 className="text-xl font-bold mb-2">{item.title}</h3>
+                    <p className="text-gray-200 mb-2">{item.description}</p>
+                    <p className="text-yellow-400 font-semibold">{item.stats}</p>
                   </div>
                 </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Process Section */}
-      <section className="py-24 px-6 bg-muted/30">
-        <div className="container mx-auto">
-          <h2 className="text-4xl font-bold text-center mb-16">
-            Från idé till färdig webbsida
-          </h2>
-          
-          <div className="grid md:grid-cols-5 gap-6">
-            {[
-              { step: "01", title: "Planering", desc: "Vi kartlägger behov och mål" },
-              { step: "02", title: "Design", desc: "Mockups och prototyper skapas" },
-              { step: "03", title: "Utveckling", desc: "Kodning och programmering" },
-              { step: "04", title: "Testning", desc: "Kvalitetssäkring och optimering" },
-              { step: "05", title: "Lansering", desc: "Driftsättning och support" }
-            ].map((item, index) => (
-              <div key={index} className="text-center">
-                <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white font-bold mx-auto mb-4">
-                  {item.step}
-                </div>
-                <h3 className="text-lg font-bold mb-2">{item.title}</h3>
-                <p className="text-muted-foreground text-sm">{item.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Stats Section */}
-      <section className="py-24 px-6">
-        <div className="container mx-auto">
-          <div className="grid md:grid-cols-4 gap-8 text-center">
-            {[
-              { number: "150+", label: "Webbsidor skapade" },
-              { number: "99.9%", label: "Upptid på våra sajter" },
-              { number: "< 2s", label: "Genomsnittlig laddningstid" },
-              { number: "100%", label: "Mobiloptimerade" }
-            ].map((stat, index) => (
-              <div key={index} className="reveal-scale">
-                <div className="text-4xl font-bold text-primary mb-2">{stat.number}</div>
-                <div className="text-muted-foreground">{stat.label}</div>
               </div>
             ))}
           </div>
@@ -248,26 +146,30 @@ const Webbdesign = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 px-6 bg-gradient-hero text-white">
+      <section className="py-24 px-6 bg-white">
         <div className="container mx-auto text-center">
           <h2 className="text-4xl font-bold mb-8">
-            Redo för en ny webbsida?
+            Vill du ha en modern och professionell webbplats?
           </h2>
-          <p className="text-xl mb-12 max-w-2xl mx-auto text-white/90">
-            Låt oss skapa en webbsida som representerar ditt företag på bästa sätt och konverterar besökare till kunder.
+          <p className="text-xl text-gray-600 mb-12 max-w-2xl mx-auto">
+            Kontakta oss för en kostnadsfri konsultation. Vi designar webbplatser som stärker ditt varumärke och driver resultat.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="bg-white text-primary font-semibold px-8 py-4 rounded-full hover:bg-white/90 transition-colors">
-              Starta ditt projekt
+          <a 
+            href="https://wa.me/923214567890" 
+            target="_blank" 
+            rel="noopener noreferrer"
+          >
+            <button className="px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-full shadow-lg transition">
+              Få kostnadsfri offert
             </button>
-            <button className="border border-white text-white font-semibold px-8 py-4 rounded-full hover:bg-white/10 transition-colors">
-              Se fler exempel
-            </button>
-          </div>
+          </a>
         </div>
       </section>
+
+      {/* Global Footer */}
+      <Footer />
     </div>
   );
 };
 
-export default Webbdesign;
+export default WebDesign;

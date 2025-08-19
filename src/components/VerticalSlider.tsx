@@ -20,19 +20,19 @@ const VerticalSlider = ({ slides }: VerticalSliderProps) => {
   const [isScrolling, setIsScrolling] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
 
+  // Handle mouse wheel navigation
   useEffect(() => {
     const handleWheel = (e: WheelEvent) => {
       if (isScrolling) return;
-      
       e.preventDefault();
       setIsScrolling(true);
-      
+
       if (e.deltaY > 0 && currentSlide < slides.length - 1) {
         setCurrentSlide(prev => prev + 1);
       } else if (e.deltaY < 0 && currentSlide > 0) {
         setCurrentSlide(prev => prev - 1);
       }
-      
+
       setTimeout(() => setIsScrolling(false), 1000);
     };
 
@@ -43,10 +43,27 @@ const VerticalSlider = ({ slides }: VerticalSliderProps) => {
     }
   }, [currentSlide, slides.length, isScrolling]);
 
+  // Auto-scroll every 5 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentSlide(prev => (prev + 1) % slides.length);
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, [slides.length]);
+
   const goToSlide = (index: number) => {
     if (!isScrolling) {
       setCurrentSlide(index);
     }
+  };
+
+  // Overlay color logic
+  const getOverlayColor = (index: number) => {
+    if (index === 1) return '#716fb0';
+    if (index === 2) return '#3b3b3b';
+    if (index === 3) return '#8b84b5';
+    return 'rgba(0, 0, 0, 0.9)';
   };
 
   return (
@@ -68,27 +85,33 @@ const VerticalSlider = ({ slides }: VerticalSliderProps) => {
               backgroundPosition: 'center'
             }}
           >
-            {/* Cinematic Overlay */}
-            <div className="cinematic-overlay" />
-            
+            {/* Overlay */}
+            <div
+              className="absolute inset-0"
+              style={{
+                backgroundColor: getOverlayColor(index),
+                opacity: 0.7
+              }}
+            />
+
             {/* Content */}
             <div className="relative z-10 text-center text-white max-w-4xl mx-auto px-6">
-              <h1 className={`hero-title mb-6 ${index === currentSlide ? 'animate-hero-reveal' : ''}`}>
+              <h1 className={`text-4xl md:text-5xl font-bold mb-6 ${index === currentSlide ? 'animate-hero-reveal' : ''}`}>
                 {slide.title}
               </h1>
-              
-              <p className={`hero-subtitle mb-4 ${index === currentSlide ? 'animate-fade-up' : ''}`}>
+
+              <p className={`text-lg md:text-xl font-light mb-4 ${index === currentSlide ? 'animate-fade-up' : ''}`}>
                 {slide.subtitle}
               </p>
-              
-              <p className={`text-lg mb-8 text-white/80 max-w-2xl mx-auto ${
+
+              <p className={`text-base md:text-lg mb-8 text-white/90 max-w-2xl mx-auto ${
                 index === currentSlide ? 'animate-fade-up' : ''
               }`} style={{ animationDelay: '0.6s' }}>
                 {slide.description}
               </p>
-              
+
               <button 
-                className={`btn-cinematic text-white rounded-full ${
+                className={`px-6 py-3 bg-white text-black font-semibold rounded-full shadow-lg hover:bg-[#ed9542] hover:text-white transition ${
                   index === currentSlide ? 'animate-scale-in' : ''
                 }`}
                 style={{ animationDelay: '0.9s' }}
@@ -98,9 +121,9 @@ const VerticalSlider = ({ slides }: VerticalSliderProps) => {
               </button>
             </div>
 
-            {/* Scroll Indicator (only on first slide) */}
+            {/* Scroll Indicator */}
             {index === 0 && currentSlide === 0 && (
-              <div className="absolute bottom-8 left-1/2 -translate-x-1/2 text-white/60 animate-bounce">
+              <div className="absolute bottom-8 left-1/2 -translate-x-1/2 text-white/80 animate-bounce">
                 <ChevronDown size={32} />
                 <p className="text-sm mt-2">Scrolla nedåt</p>
               </div>
@@ -110,19 +133,21 @@ const VerticalSlider = ({ slides }: VerticalSliderProps) => {
       </div>
 
       {/* Vertical Navigation Dots */}
-      <div className="nav-dots">
+      <div className="fixed right-4 top-1/2 -translate-y-1/2 flex flex-col space-y-3 z-50">
         {slides.map((_, index) => (
           <button
             key={index}
             onClick={() => goToSlide(index)}
-            className={`nav-dot ${index === currentSlide ? 'active' : ''}`}
-            aria-label={`Gå till slide ${index + 1}`}
+            className={`w-3 h-3 rounded-full transition-all duration-300 ${
+              index === currentSlide ? 'bg-[#ed9542]' : 'bg-white/50'
+            }`}
+            aria-label={`Go to slide ${index + 1}`}
           />
         ))}
       </div>
 
       {/* Progress Indicator */}
-      <div className="fixed bottom-6 left-6 text-white/60 text-sm">
+      <div className="fixed bottom-6 left-6 text-white/70 text-sm z-50">
         <span className="text-white font-medium">{String(currentSlide + 1).padStart(2, '0')}</span>
         <span className="mx-2">/</span>
         <span>{String(slides.length).padStart(2, '0')}</span>
