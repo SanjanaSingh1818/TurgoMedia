@@ -24,7 +24,7 @@ import DunderDonerLogo from '../assets/logo1.png';
 import SteammasterLogo from '../assets/Steammaster-logo.png';
 import GrillogardenLogo from '../assets/gril.avif';
 import ChixeeLogo from '../assets/CHIXEE.png';
-import HalsosamHemLogo from '../assets/hem.png';
+import HemLogo from '../assets/hem.png';
 import AlmedalsLogo from '../assets/logo2.png';
 import KalimeraLogo from '../assets/kalimera-logo.png';
 
@@ -100,7 +100,7 @@ const testimonials = [
     link: 'https://chixee.se',
   },
   {
-    logo: HalsosamHemLogo,
+    logo: HemLogo,
     name: 'Hälsosam Hem',
     role: 'Hemstädning',
     text: 'Vi samarbetade med Hälsosam Hem för att lyfta fram deras pålitliga och professionella städtjänster...',
