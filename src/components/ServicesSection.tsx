@@ -2,45 +2,52 @@ import React, { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { FaCubes, FaLifeRing, FaDatabase } from "react-icons/fa";
 import { Link } from "react-router-dom"; // 👈 import Link
+import videoImg from "../assets/images/video.jpg";
+import photographyImg from "../assets/images/photography.jpg";
+import socialImg from "../assets/images/social.jpg";
+import seoImg from "../assets/images/seo.jpg";
+import webdesignImg from "../assets/images/webdesign.jpg";
+
 
 // Service List with updated Swedish content and links
 const services = [
   {
     title: "Videoproduktion för sociala medier & annonser",
     desc: "Korta och slagkraftiga videor som engagerar, bygger varumärke och driver resultat.",
-    img: "/src/assets/images/video.jpg",
+    img: videoImg, // 👈 imported image
     icon: <FaCubes />,
-    link: "/videoproduktion", // 👈 service route
+    link: "/videoproduktion",
   },
   {
     title: "Innehåll och publicering på sociala medier",
     desc: "Vi skapar inte bara innehåll – vi hanterar även dina sociala medier. Vi planerar, producerar och publicerar inlägg åt dig, så att du kan fokusera på verksamheten medan vi sköter din digitala närvaro.",
-    img: "/src/assets/images/photography.jpg",
+    img: socialImg ,
     icon: <FaLifeRing />,
-    link: "/innehallpublicering",
+    link: "/innehall-publicering",
   },
   {
     title: "Produktfotografering",
     desc: "Professionella bilder som framhäver dina produkter och ökar försäljningen både online och i butik.",
-    img: "/src/assets/images/social.jpg",
+    img: photographyImg,
     icon: <FaDatabase />,
-    link: "/productphotography",
+    link: "/produktfotografering",
   },
   {
     title: "Webbdesign & utveckling",
     desc: "Responsiva och användarvänliga hemsidor anpassade efter ditt varumärke och målgrupp.",
-    img: "/src/assets/images/seo.jpg",
+    img: webdesignImg,
     icon: <FaCubes />,
-    link: "/webdesign",
+    link: "/webbdesign",
   },
   {
     title: "SEO & Lokal synlighet",
     desc: "Vi optimerar din hemsida för att synas högre i Google och hjälper ditt företag att rankas bättre lokalt och bli mer synligt för närliggande kunder.",
-    img: "/src/assets/images/webdesign.jpg",
+    img: seoImg,
     icon: <FaLifeRing />,
-    link: "/seolokalsynlighet",
+    link: "/seo-lokal-synlighet",
   },
 ];
+
 
 // Service Card Component
 const ServiceCard = ({ title, desc, img, icon, link }) => {

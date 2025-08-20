@@ -2,6 +2,7 @@ import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { CheckCircle } from 'lucide-react';
+import aboutImage from '../assets/images/about.jpg';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -129,12 +130,13 @@ const AboutUsSection = () => {
 
           {/* Image Section */}
           {/* Image Section */}
+{/* Image Section */}
 <div ref={imageRef} className="relative">
   <div className="relative rounded-3xl overflow-hidden bg-gradient-to-br from-primary/10 to-secondary/10 p-8">
-    {/* Replaced placeholder with actual image */}
+    {/* Image */}
     <div className="aspect-square bg-gradient-to-br from-primary/20 to-secondary/20 rounded-2xl overflow-hidden">
       <img 
-        src="/src/assets/images/about.jpg" 
+        src={aboutImage} 
         alt="Professional Team" 
         className="w-full h-full object-cover"
       />
@@ -148,6 +150,7 @@ const AboutUsSection = () => {
     </div>
   </div>
 </div>
+
 
         </div>
       </div>

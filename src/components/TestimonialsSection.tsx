@@ -13,102 +13,118 @@ import {
   FaTiktok,
 } from 'react-icons/fa';
 
+// ✅ Import logo images
+import PizzeriaLogo from '../assets/Pizzeria-logo.png';
+import SultanLogo from '../assets/sultan-logo.jpg';
+import MobeltvattLogo from '../assets/Mobeltvatt-logo.png';
+import CityFlyttLogo from '../assets/cityflytt-logo.png';
+import ArcusLogo from '../assets/arcus-logo.webp';
+import KaroonLogo from '../assets/karoon-logo.png';
+import DunderDonerLogo from '../assets/logo1.png';
+import SteammasterLogo from '../assets/Steammaster-logo.png';
+import GrillogardenLogo from '../assets/gril.avif';
+import ChixeeLogo from '../assets/CHIXEE.png';
+import HalsosamHemLogo from '../assets/hem.png';
+import AlmedalsLogo from '../assets/logo2.png';
+import KalimeraLogo from '../assets/kalimera-logo.png';
+
 const testimonials = [
   {
-    logo: '/src/assets/Pizzeria-logo.png',
+    logo: PizzeriaLogo,
     name: 'Pizzeria Mums',
     role: 'Restaurangvarumärke',
     text: 'Turgomedia är stolta över att stödja Pizzeria Mums med engagerande videoinnehåll...',
     link: 'https://pizzeriamums.se',
   },
   {
-    logo: '/src/assets/sultan-logo.jpg',
+    logo: SultanLogo,
     name: 'Sultan Grill',
     role: 'Mellanösternrestaurang',
     text: 'Vi samarbetar med Sultan Grill för att stärka deras varumärkesidentitet...',
     link: 'https://sultangrill.se',
   },
   {
-    logo: '/src/assets/Mobeltvatt-logo.png',
+    logo: MobeltvattLogo,
     name: 'Illos Möbelrekond',
     role: 'Möbeltvätt',
     text: 'Turgomedia arbetar nära med Illos Möbelrekond för att öka deras synlighet...',
     link: 'https://offert.illosmobelrekond.se/mobeltvatt',
   },
   {
-    logo: '/src/assets/cityflytt-logo.png',
+    logo: CityFlyttLogo,
     name: 'City Flytt',
     role: 'Flytttjänster',
     text: 'Vårt team samarbetade med City Flytt för att designa om deras webbplats...',
     link: 'https://cityflytt.se',
   },
   {
-    logo: '/src/assets/arcus-logo.webp',
+    logo: ArcusLogo,
     name: 'Arcus Transport',
     role: 'Transportföretag',
     text: 'Turgomedia samarbetar med Arcus Transport för att stärka deras digitala närvaro...',
     link: 'https://arcustransport.se',
   },
   {
-    logo: '/src/assets/karoon-logo.png',
+    logo: KaroonLogo,
     name: 'Karoon',
     role: 'Startup-varumärke',
     text: 'Vi har levererat ett komplett digitalt lanseringspaket till Karoon...',
     link: 'https://karoon.se',
   },
-   {
-   logo: '/src/assets/logo1.png',
-name: 'Dunder Doner',
-role: 'Matleveransplattform',  // "Food delivery platform" in Swedish
-text: 'Vårt team samarbetade med Dunder Doner för att skapa en modern digital närvaro...',
-link: 'https://dunderdoner.se',
-
-  },
-     {
-logo: '/src/assets/Steammaster-logo.png',
-name: 'Steammaster',
-role: 'Städtjänster',  // "Cleaning services" in Swedish
-text: 'Vårt team samarbetade med Steammaster. Resultatet speglar deras fokus på pålitliga och högkvalitativa städtjänster...',
-link: 'https://steammaster.se',
-  },
-       {
-logo: '/src/assets/gril.avif',
-name: 'Grillogården',
-role: 'Restaurang',  // "Restaurant" in Swedish
-text: 'Vårt team samarbetade med Grillogården för att skapa en modern digital närvaro...',
-link: 'https://grillogarden.se',
-  },
-
-       {
-logo: '/src/assets/CHIXEE.png',
-name: 'Chixee',
-role: 'Restaurang',  // "Restaurant" in Swedish
-text: 'Vi samarbetade med Chixee för att lyfta fram deras passion för krispig fried chicken och en unik matupplevelse...',
-link: 'https://chixee.se',
-  },
-         {
-logo: '/src/assets/hem.png',
-name: 'Hälsosam Hem',
-role: 'Hemstädning',  // "Home cleaning" in Swedish
-text: 'Vi samarbetade med Hälsosam Hem för att lyfta fram deras pålitliga och professionella städtjänster...',
-link: 'https://halsosamthem.se',
+  {
+    logo: DunderDonerLogo,
+    name: 'Dunder Doner',
+    role: 'Matleveransplattform',
+    text: 'Vårt team samarbetade med Dunder Doner för att skapa en modern digital närvaro...',
+    link: 'https://dunderdoner.se',
   },
   {
-    logo: '/src/assets/logo2.png',
-name: 'Almedals Flyttexpress',
-role: 'Flyttfirma',  // "Moving company" in Swedish
-text: 'Vi samarbetade med Almedals Flyttexpress för att stärka deras digitala närvaro...',
-link: 'https://almedalsflyttexpress.se',
+    logo: SteammasterLogo,
+    name: 'Steammaster',
+    role: 'Städtjänster',
+    text: 'Vårt team samarbetade med Steammaster. Resultatet speglar deras fokus på pålitliga och högkvalitativa städtjänster...',
+    link: 'https://steammaster.se',
   },
   {
-logo: '/src/assets/kalimera-logo.png',
-name: 'Kalimerameze Tapas',
-role: 'Restaurang',  // "Restaurant" in Swedish
-text: 'Vi samarbetade med Kalimerameze Tapas för att fånga deras medelhavsmagi och bjudande matupplevelse...', 
-link: 'https://kalimeramezetapas.se',
-
+    logo: GrillogardenLogo,
+    name: 'Grillogården',
+    role: 'Restaurang',
+    text: 'Vårt team samarbetade med Grillogården för att skapa en modern digital närvaro...',
+    link: 'https://grillogarden.se',
+  },
+  {
+    logo: ChixeeLogo,
+    name: 'Chixee',
+    role: 'Restaurang',
+    text: 'Vi samarbetade med Chixee för att lyfta fram deras passion för krispig fried chicken och en unik matupplevelse...',
+    link: 'https://chixee.se',
+  },
+  {
+    logo: HalsosamHemLogo,
+    name: 'Hälsosam Hem',
+    role: 'Hemstädning',
+    text: 'Vi samarbetade med Hälsosam Hem för att lyfta fram deras pålitliga och professionella städtjänster...',
+    link: 'https://halsosamthem.se',
+  },
+  {
+    logo: AlmedalsLogo,
+    name: 'Almedals Flyttexpress',
+    role: 'Flyttfirma',
+    text: 'Vi samarbetade med Almedals Flyttexpress för att stärka deras digitala närvaro...',
+    link: 'https://almedalsflyttexpress.se',
+  },
+  {
+    logo: KalimeraLogo,
+    name: 'Kalimerameze Tapas',
+    role: 'Restaurang',
+    text: 'Vi samarbetade med Kalimerameze Tapas för att fånga deras medelhavsmagi och bjudande matupplevelse...',
+    link: 'https://kalimeramezetapas.se',
   },
 ];
+
+
+// ...rest of your TestimonialSection component remains unchanged
+
 
 const socialIcons = [
   FaFacebookF,
