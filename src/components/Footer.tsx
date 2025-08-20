@@ -195,25 +195,6 @@ const Footer = () => {
             <p className="text-muted-foreground text-sm">
               © 2024 Turgomedia. Alla rättigheter förbehållna.
             </p>
-
-            <div className="flex items-center gap-6">
-              <Link
-                to="https://genesisvirtue.com/"
-                className="text-muted-foreground hover:text-primary text-sm transition-colors duration-300"
-              >
-                Drivs av Genesis Virtue
-              </Link>
-     
-
-              {/* Scroll to Top */}
-              <button
-                onClick={scrollToTop}
-                className="bg-primary/10 hover:bg-primary hover:text-white p-2 rounded-full transition-all duration-300 hover:scale-110"
-                aria-label="Scroll to top"
-              >
-                <ArrowUp className="w-4 h-4" />
-              </button>
-            </div>
           </div>
         </div>
       </div>
