@@ -14,7 +14,7 @@ const FloatingActions = () => {
 
       {/* WhatsApp */}
       <a
-        href="https://wa.me/923214567890"
+        href="https://wa.me/46722282221"
         target="_blank"
         rel="noopener noreferrer"
         className="group bg-[#5f4c8c] text-white p-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110"
@@ -25,7 +25,7 @@ const FloatingActions = () => {
 
       {/* Call */}
       <a
-        href="tel:923214567890"
+        href="tel:+46707944944‬ "
         className="group bg-[#5f4c8c] text-white p-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110"
         aria-label="Call"
       >

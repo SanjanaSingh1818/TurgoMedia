@@ -32,5 +32,37 @@
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
+    <script type="text/javascript">
+  function googleTranslateElementInit() {
+    new google.translate.TranslateElement(
+      {
+        pageLanguage: 'ar', // 👈 Default language is Arabic
+        includedLanguages: 'en,ar', // 👈 Allow only English & Arabic
+        layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+      },
+      'google_translate_element'
+    );
+  }
+</script>
+<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+<script>
+  function setDirection(lang) {
+    if (lang === "ar") {
+      document.body.setAttribute("dir", "rtl");
+    } else {
+      document.body.setAttribute("dir", "ltr");
+    }
+  }
+
+  // Monitor Google Translate changes
+  document.addEventListener("DOMNodeInserted", function(event) {
+    if (event.target.classList && event.target.classList.contains("goog-te-menu-value")) {
+      const selectedLang = event.target.innerText.includes("العربية") ? "ar" : "en";
+      setDirection(selectedLang);
+    }
+  });
+</script>
+
   </body>
 </html>

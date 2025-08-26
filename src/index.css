@@ -247,3 +247,35 @@
   0% { transform: translateY(0px); }
   100% { transform: translateY(-50px); }
 }
+
+/* Force Google Translate gadget to shrink */
+.translate-widget {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+/* Remove Google branding text */
+.goog-te-gadget {
+  font-size: 0 !important;
+  color: transparent !important;
+}
+
+/* Shrink the dropdown into an icon */
+.goog-te-gadget .goog-te-combo {
+  font-size: 0 !important;        /* hide text */
+  width: 32px !important;         /* small square */
+  height: 32px !important;
+  border: none !important;
+  cursor: pointer;
+  
+  /* Add globe icon */
+  background: url('https://cdn-icons-png.flaticon.com/512/44/44386.png') no-repeat center center !important;
+  background-size: 18px 18px !important;
+  color: transparent !important;
+  padding: 0 !important;
+}
+
+.goog-logo-link,
+.goog-te-gadget span {
+  display: none !important;
+}

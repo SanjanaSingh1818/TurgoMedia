@@ -8,48 +8,48 @@ import web3 from '../assets/photo3.mp4';
 
 const WebDesign = () => {
   const portfolioItems = [
-    { title: "E-handelswebb", description: "Modern e-handelsdesign som ökade kundernas köpupplevelse", video: web1, stats: "40% ökad försäljning" },
-    { title: "Företagswebbplats", description: "Ren och professionell design för ett konsultbolag", video: web2, stats: "Stärkt varumärkesidentitet" },
-    { title: "Responsiv Design", description: "Mobilanpassad design för startup som ökade engagemanget", video: web3, stats: "60% fler mobilanvändare" }
+    { title: "موقع تجارة إلكترونية", description: "تصميم حديث للتجارة الإلكترونية حسّن تجربة العملاء الشرائية", video: web1, stats: "زيادة المبيعات بنسبة 40%" },
+    { title: "موقع شركة", description: "تصميم نظيف واحترافي لشركة استشارية", video: web2, stats: "تعزيز هوية العلامة التجارية" },
+    { title: "تصميم متجاوب", description: "تصميم متوافق مع الجوال لشركة ناشئة زاد التفاعل", video: web3, stats: "زيادة بنسبة 60% في عدد مستخدمي الجوال" }
   ];
 
   const services = [
-    { icon: <Monitor className="w-6 h-6 sm:w-8 sm:h-8" />, title: "UI/UX Design", description: "Användarvänliga och intuitiva gränssnitt som förbättrar kundupplevelsen." },
-    { icon: <Palette className="w-6 h-6 sm:w-8 sm:h-8" />, title: "Grafisk Webbdesign", description: "Attraktiv och modern design som stärker ditt varumärke." },
-    { icon: <Smartphone className="w-6 h-6 sm:w-8 sm:h-8" />, title: "Responsiv Design", description: "Optimerad för alla enheter – mobil, surfplatta och dator." },
-    { icon: <Globe className="w-6 h-6 sm:w-8 sm:h-8" />, title: "E-handel & Företagswebb", description: "Skräddarsydda lösningar för både småföretag och stora varumärken." }
+    { icon: <Monitor className="w-6 h-6 sm:w-8 sm:h-8" />, title: "تصميم واجهة وتجربة المستخدم (UI/UX)", description: "واجهات سهلة الاستخدام وبديهية تحسن تجربة العملاء." },
+    { icon: <Palette className="w-6 h-6 sm:w-8 sm:h-8" />, title: "التصميم الجرافيكي للويب", description: "تصميم عصري وجذاب يعزز هوية علامتك التجارية." },
+    { icon: <Smartphone className="w-6 h-6 sm:w-8 sm:h-8" />, title: "تصميم متجاوب", description: "محسن لجميع الأجهزة – الهاتف المحمول، الأجهزة اللوحية، وأجهزة الكمبيوتر." },
+    { icon: <Globe className="w-6 h-6 sm:w-8 sm:h-8" />, title: "التجارة الإلكترونية ومواقع الشركات", description: "حلول مخصصة للشركات الصغيرة والعلامات التجارية الكبيرة." }
   ];
 
   return (
-    <div className="min-h-screen flex flex-col bg-white text-gray-900">
+    <div className="min-h-screen flex flex-col bg-white text-gray-900" dir="rtl">
       <Navigation />
 
-      {/* Hero Section */}
+      {/* قسم البطل */}
       <section className="relative flex items-center justify-center min-h-[60vh] sm:min-h-screen">
         <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url(${heroImage})` }} />
         <div className="absolute inset-0 bg-black/50" />
         <div className="relative z-10 text-center text-white max-w-[90%] mx-auto px-2 sm:px-6">
-          <h1 className="text-2xl xs:text-2.5xl sm:text-5xl md:text-6xl font-bold mb-2 xs:mb-3 sm:mb-6">Webbdesign</h1>
-          <p className="text-sm xs:text-base sm:text-xl mb-2 xs:mb-3 sm:mb-8">UI/UX, E-handel & företagswebbplatser</p>
+          <h1 className="text-2xl xs:text-2.5xl sm:text-5xl md:text-6xl font-bold mb-2 xs:mb-3 sm:mb-6">تصميم المواقع</h1>
+          <p className="text-sm xs:text-base sm:text-xl mb-2 xs:mb-3 sm:mb-8">واجهة وتجربة المستخدم، التجارة الإلكترونية ومواقع الشركات</p>
           <p className="text-xs xs:text-sm sm:text-base mb-2 xs:mb-3 sm:mb-12 text-gray-200 max-w-[95%] mx-auto">
-            Vi skapar moderna, responsiva och användarvänliga webbplatser som engagerar, bygger förtroende och driver resultat.
+            نحن نصمم مواقع حديثة، متجاوبة وسهلة الاستخدام تعزز التفاعل، تبني الثقة وتحقق النتائج.
           </p>
-          <a href="https://wa.me/923214567890" target="_blank" rel="noopener noreferrer">
+          <a href="https://wa.me/46722282221 " target="_blank" rel="noopener noreferrer">
             <button className="w-full xs:w-full sm:w-auto px-4 sm:px-8 py-2 sm:py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-full shadow-lg transition">
-              Kontakta oss idag
+              اتصل بنا اليوم
             </button>
           </a>
         </div>
       </section>
 
-      {/* Services Section */}
+      {/* قسم الخدمات */}
       <section className="py-10 xs:py-12 sm:py-16 px-2 xs:px-4 sm:px-6 bg-gray-50">
         <div className="container mx-auto">
           <h2 className="text-xl xs:text-2xl sm:text-4xl md:text-5xl font-bold text-center mb-2 xs:mb-3 sm:mb-6">
-            Våra Webbdesign-tjänster
+            خدمات تصميم المواقع لدينا
           </h2>
           <p className="text-xs xs:text-sm sm:text-base text-center text-gray-600 mb-4 xs:mb-6 sm:mb-12 max-w-[95%] mx-auto">
-            Från UI/UX till kompletta företagswebbplatser – vi erbjuder allt du behöver för att skapa en professionell digital närvaro.
+            من تصميم واجهات وتجربة المستخدم إلى مواقع الشركات المتكاملة – نقدم كل ما تحتاجه لبناء حضور رقمي احترافي.
           </p>
           <div className="grid grid-cols-1 xs:grid-cols-1 sm:grid-cols-2 gap-3 xs:gap-4 sm:gap-6 md:gap-8 max-w-4xl mx-auto">
             {services.map((service, index) => (
@@ -63,12 +63,12 @@ const WebDesign = () => {
         </div>
       </section>
 
-      {/* Portfolio Section */}
+      {/* قسم الأعمال (Portfolio) */}
       <section className="py-10 xs:py-12 sm:py-16 px-2 xs:px-4 sm:px-6 bg-gray-100">
         <div className="container mx-auto">
-          <h2 className="text-xl xs:text-2xl sm:text-4xl md:text-5xl font-bold text-center mb-2 xs:mb-3 sm:mb-6">Portfolio</h2>
+          <h2 className="text-xl xs:text-2xl sm:text-4xl md:text-5xl font-bold text-center mb-2 xs:mb-3 sm:mb-6">أعمالنا</h2>
           <p className="text-xs xs:text-sm sm:text-base text-gray-600 text-center mb-4 xs:mb-6 sm:mb-12 max-w-[95%] mx-auto">
-            Ett urval av våra senaste webbdesignprojekt som hjälpt företag att växa online.
+            مجموعة من أحدث مشاريعنا في تصميم المواقع التي ساعدت الشركات على النمو عبر الإنترنت.
           </p>
           <div className="grid grid-cols-1 xs:grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 xs:gap-4 sm:gap-6 md:gap-8">
             {portfolioItems.map((item, index) => (
@@ -95,18 +95,18 @@ const WebDesign = () => {
         </div>
       </section>
 
-      {/* CTA Section */}
+      {/* قسم الدعوة إلى الإجراء (CTA) */}
       <section className="py-10 xs:py-12 sm:py-16 px-2 xs:px-4 sm:px-6 bg-white">
         <div className="container mx-auto text-center">
           <h2 className="text-lg xs:text-xl sm:text-3xl md:text-4xl font-bold mb-2 xs:mb-3 sm:mb-6">
-            Vill du ha en modern och professionell webbplats?
+            هل تريد موقعًا عصريًا واحترافيًا؟
           </h2>
           <p className="text-xs xs:text-sm sm:text-base text-gray-600 mb-4 xs:mb-6 sm:mb-12 max-w-[95%] mx-auto">
-            Kontakta oss för en kostnadsfri konsultation. Vi designar webbplatser som stärker ditt varumärke och driver resultat.
+            تواصل معنا للحصول على استشارة مجانية. نحن نصمم مواقع تعزز علامتك التجارية وتحقق النتائج.
           </p>
-          <a href="https://wa.me/923214567890" target="_blank" rel="noopener noreferrer">
+          <a href="https://wa.me/46722282221 " target="_blank" rel="noopener noreferrer">
             <button className="w-full xs:w-full sm:w-auto px-4 sm:px-8 py-2 sm:py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-full shadow-lg transition">
-              Få kostnadsfri offert
+              احصل على عرض مجاني
             </button>
           </a>
         </div>

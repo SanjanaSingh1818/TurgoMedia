@@ -8,20 +8,20 @@ import seo3 from '../assets/sm3.mp4';
 
 const SeoLokalSynlighet = () => {
   const portfolioItems = [
-    { title: "Lokal restaurang SEO", description: "Optimering som ökade synlighet på Google Maps och lockade fler kunder", video: seo1, stats: "70% fler bokningar" },
-    { title: "E-handels SEO", description: "Organisk optimering som ökade trafiken till webbshopen", video: seo2, stats: "50% ökad organisk trafik" },
-    { title: "Företags SEO", description: "SEO-strategi för konsultföretag som ökade leads via Google", video: seo3, stats: "3x fler inkommande förfrågningar" }
+    { title: "تحسين محركات البحث لمطعم محلي", description: "تحسين الظهور على خرائط جوجل وجذب المزيد من العملاء", video: seo1, stats: "زيادة الحجوزات بنسبة 70%" },
+    { title: "تحسين محركات البحث للتجارة الإلكترونية", description: "تحسينات عضوية زادت من حركة المرور إلى المتجر الإلكتروني", video: seo2, stats: "زيادة بنسبة 50% في الزيارات العضوية" },
+    { title: "تحسين محركات البحث للشركات", description: "استراتيجية SEO لشركة استشارية زادت العملاء المحتملين عبر جوجل", video: seo3, stats: "زيادة 3 أضعاف في الاستفسارات" }
   ];
 
   const services = [
-    { icon: <Search className="w-6 h-6 sm:w-8 sm:h-8" />, title: "On-page SEO", description: "Optimering av titlar, meta-taggar, innehåll och struktur för bättre ranking." },
-    { icon: <MapPin className="w-6 h-6 sm:w-8 sm:h-8" />, title: "Lokal SEO", description: "Hjälper ditt företag synas på Google Maps och i lokala sökresultat." },
-    { icon: <TrendingUp className="w-6 h-6 sm:w-8 sm:h-8" />, title: "SEO-strategi", description: "Datadrivna strategier för att öka din organiska synlighet och trafik." },
-    { icon: <Globe className="w-6 h-6 sm:w-8 sm:h-8" />, title: "Teknisk SEO", description: "Förbättringar av laddningstider, mobilanpassning och webbplatsstruktur." }
+    { icon: <Search className="w-6 h-6 sm:w-8 sm:h-8" />, title: "تحسين الصفحات الداخلية (On-page SEO)", description: "تحسين العناوين، الوسوم، المحتوى والبنية لزيادة الترتيب." },
+    { icon: <MapPin className="w-6 h-6 sm:w-8 sm:h-8" />, title: "السيو المحلي", description: "مساعدة عملك في الظهور على خرائط جوجل ونتائج البحث المحلية." },
+    { icon: <TrendingUp className="w-6 h-6 sm:w-8 sm:h-8" />, title: "استراتيجية SEO", description: "استراتيجيات مبنية على البيانات لزيادة الظهور العضوي وحركة المرور." },
+    { icon: <Globe className="w-6 h-6 sm:w-8 sm:h-8" />, title: "السيو التقني", description: "تحسين سرعة التحميل، التوافق مع الهواتف الذكية وهيكل الموقع." }
   ];
 
   return (
-    <div className="min-h-screen flex flex-col bg-white text-gray-900">
+    <div className="min-h-screen flex flex-col bg-white text-gray-900" dir="rtl">
       <Navigation />
 
       {/* Hero Section */}
@@ -29,14 +29,14 @@ const SeoLokalSynlighet = () => {
         <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url(${heroImage})` }} />
         <div className="absolute inset-0 bg-black/50" />
         <div className="relative z-10 text-center text-white max-w-[90%] mx-auto px-2 sm:px-6">
-          <h1 className="text-2xl xs:text-2.5xl sm:text-5xl md:text-6xl font-bold mb-2 xs:mb-3 sm:mb-6">SEO & Lokal Synlighet</h1>
-          <p className="text-sm xs:text-base sm:text-2xl mb-2 xs:mb-3 sm:mb-8">Bli hittad av rätt kunder, på rätt plats och i rätt tid</p>
+          <h1 className="text-2xl xs:text-2.5xl sm:text-5xl md:text-6xl font-bold mb-2 xs:mb-3 sm:mb-6">تحسين محركات البحث و الظهور المحلي</h1>
+          <p className="text-sm xs:text-base sm:text-2xl mb-2 xs:mb-3 sm:mb-8">كن في متناول العملاء المناسبين، في المكان المناسب، وفي الوقت المناسب</p>
           <p className="text-xs xs:text-sm sm:text-xl mb-4 xs:mb-5 sm:mb-12 text-gray-200 max-w-[95%] mx-auto">
-            Vi hjälper företag att ranka högre på Google, förbättra lokal synlighet och driva mer trafik som leder till fler kunder och affärer.
+            نحن نساعد الشركات على الظهور بترتيب أعلى في جوجل، تحسين الظهور المحلي، وزيادة حركة المرور التي تؤدي إلى المزيد من العملاء والمبيعات.
           </p>
-          <a href="https://wa.me/923214567890" target="_blank" rel="noopener noreferrer">
+          <a href="https://wa.me/46722282221" target="_blank" rel="noopener noreferrer">
             <button className="w-full xs:w-full sm:w-auto px-4 sm:px-8 py-2 sm:py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-full shadow-lg transition">
-              Kontakta oss idag
+              تواصل معنا اليوم
             </button>
           </a>
         </div>
@@ -45,9 +45,9 @@ const SeoLokalSynlighet = () => {
       {/* Services Section */}
       <section className="py-10 xs:py-12 sm:py-24 px-2 xs:px-4 sm:px-6 bg-gray-50">
         <div className="container mx-auto">
-          <h2 className="text-xl xs:text-2xl sm:text-5xl font-bold text-center mb-2 xs:mb-3 sm:mb-6">Våra SEO-tjänster</h2>
+          <h2 className="text-xl xs:text-2xl sm:text-5xl font-bold text-center mb-2 xs:mb-3 sm:mb-6">خدمات تحسين محركات البحث لدينا</h2>
           <p className="text-xs xs:text-sm sm:text-lg text-center text-gray-600 mb-4 xs:mb-6 sm:mb-16 max-w-[95%] mx-auto">
-            Från lokal SEO till teknisk optimering – vi erbjuder en helhetslösning för att förbättra din digitala synlighet och öka dina resultat.
+            من تحسين السيو المحلي إلى التحسينات التقنية – نقدم حلولاً متكاملة لتحسين ظهورك الرقمي وزيادة نتائجك.
           </p>
           <div className="grid grid-cols-1 xs:grid-cols-1 sm:grid-cols-2 gap-3 xs:gap-4 sm:gap-8 max-w-4xl mx-auto">
             {services.map((service, index) => (
@@ -64,9 +64,9 @@ const SeoLokalSynlighet = () => {
       {/* Portfolio Section */}
       <section className="py-10 xs:py-12 sm:py-24 px-2 xs:px-4 sm:px-6 bg-gray-100">
         <div className="container mx-auto">
-          <h2 className="text-xl xs:text-2xl sm:text-5xl font-bold text-center mb-2 xs:mb-3 sm:mb-6">Våra SEO-resultat</h2>
+          <h2 className="text-xl xs:text-2xl sm:text-5xl font-bold text-center mb-2 xs:mb-3 sm:mb-6">نتائج تحسين محركات البحث لدينا</h2>
           <p className="text-xs xs:text-sm sm:text-lg text-gray-600 text-center mb-4 xs:mb-6 sm:mb-16 max-w-[95%] mx-auto">
-            Här är några exempel på företag vi hjälpt att växa genom SEO och lokal synlighet.
+            فيما يلي بعض الأمثلة على الشركات التي ساعدناها على النمو من خلال تحسين محركات البحث والظهور المحلي.
           </p>
           <div className="grid grid-cols-1 xs:grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 xs:gap-4 sm:gap-8">
             {portfolioItems.map((item, index) => (
@@ -96,13 +96,13 @@ const SeoLokalSynlighet = () => {
       {/* CTA Section */}
       <section className="py-10 xs:py-12 sm:py-24 px-2 xs:px-4 sm:px-6 bg-white">
         <div className="container mx-auto text-center">
-          <h2 className="text-lg xs:text-xl sm:text-4xl font-bold mb-2 xs:mb-3 sm:mb-8">Vill du dominera sökresultaten?</h2>
+          <h2 className="text-lg xs:text-xl sm:text-4xl font-bold mb-2 xs:mb-3 sm:mb-8">هل تريد السيطرة على نتائج البحث؟</h2>
           <p className="text-xs xs:text-sm sm:text-xl text-gray-600 mb-4 xs:mb-6 sm:mb-12 max-w-[95%] mx-auto">
-            Kontakta oss för en gratis SEO-analys. Vi hjälper dig att bli synlig för rätt kunder, på rätt plats och i rätt tid.
+            تواصل معنا للحصول على تحليل SEO مجاني. سنساعدك على أن تكون مرئيًا للعملاء المناسبين، في المكان المناسب، وفي الوقت المناسب.
           </p>
-          <a href="https://wa.me/923214567890" target="_blank" rel="noopener noreferrer">
+          <a href="https://wa.me/46722282221" target="_blank" rel="noopener noreferrer">
             <button className="w-full xs:w-full sm:w-auto px-4 sm:px-8 py-2 sm:py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-full shadow-lg transition">
-              Få kostnadsfri SEO-analys
+              احصل على تحليل SEO مجاني
             </button>
           </a>
         </div>

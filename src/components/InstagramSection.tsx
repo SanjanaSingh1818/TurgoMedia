@@ -13,17 +13,17 @@ const InstagramSection = () => {
           <div className="md:w-2/3">
             <div className="flex items-center justify-center md:justify-start gap-3 mb-2">
               <div className="w-12 h-0.5 bg-black opacity-100"></div>
-              <h5 className="text-[#5f4c8c] text-base font-bold">FÖLJ OSS</h5>
+              <h5 className="text-[#5f4c8c] text-base font-bold">تابعنا</h5>
             </div>
             <h2 className="text-4xl md:text-5xl font-bold leading-tight mb-4 relative z-10">
-              <span className="text-black">Senaste på </span>
+              <span className="text-black">أحدث ما نشرنا على </span>
               <span className="bg-gradient-warm bg-clip-text text-transparent">
-                Instagram
+                إنستغرام
               </span>
             </h2>
 
             <p className="text-black/80 max-w-xl mx-auto md:mx-0">
-              Kolla in våra senaste videor och uppdateringar på Instagram
+              اكتشف أحدث مقاطع الفيديو والتحديثات الخاصة بنا على إنستغرام
             </p>
           </div>
 
@@ -35,7 +35,7 @@ const InstagramSection = () => {
               rel="noopener noreferrer"
               className="bg-[#5E4B8B] text-white border border-white font-semibold px-6 py-2 rounded-md transition-colors duration-300 hover:bg-[#ed9542]"
             >
-              Visa profil
+              عرض الحساب
             </a>
           </div>
         </div>

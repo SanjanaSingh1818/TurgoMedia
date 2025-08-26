@@ -8,20 +8,20 @@ import sm3 from '../assets/sm3.mp4';
 
 const InehallPublicering = () => {
   const portfolioItems = [
-    { title: "Instagram Reel", description: "Kreativ reel som nådde 500k visningar på en vecka", video: sm1, stats: "500k visningar" },
-    { title: "YouTube Shorts", description: "Engagerande shorts för tech-varumärke som ökade prenumeranter", video: sm2, stats: "+10k prenumeranter" },
-    { title: "TikTok Kampanj", description: "Trendande TikTok-video som genererade viralt genomslag", video: sm3, stats: "1M+ visningar" }
+    { title: "ريل إنستغرام", description: "ريل إبداعي حقق 500 ألف مشاهدة في أسبوع", video: sm1, stats: "500 ألف مشاهدة" },
+    { title: "شورت يوتيوب", description: "مقاطع قصيرة جذابة لعلامة تقنية زادت عدد المشتركين", video: sm2, stats: "+10 آلاف مشترك" },
+    { title: "حملة تيك توك", description: "فيديو تيك توك رائج حقق انتشاراً واسعاً", video: sm3, stats: "1M+ مشاهدة" }
   ];
 
   const services = [
-    { icon: <Instagram className="w-6 h-6 sm:w-8 sm:h-8" />, title: "Instagram Reels", description: "Korta, snygga reels som engagerar och stärker ditt varumärke." },
-    { icon: <Youtube className="w-6 h-6 sm:w-8 sm:h-8" />, title: "YouTube Shorts", description: "Optimerade shorts för att öka visningar och prenumeranter." },
-    { icon: <Facebook className="w-6 h-6 sm:w-8 sm:h-8" />, title: "Facebook Stories", description: "Fånga uppmärksamheten med kreativa stories för din målgrupp." },
-    { icon: <Twitter className="w-6 h-6 sm:w-8 sm:h-8" />, title: "TikTok Kampanjer", description: "Skapa virala TikTok-videor som når en bred publik." }
+    { icon: <Instagram className="w-6 h-6 sm:w-8 sm:h-8" />, title: "ريلز إنستغرام", description: "ريلز قصيرة وأنيقة تزيد من تفاعل جمهورك وتقوي علامتك." },
+    { icon: <Youtube className="w-6 h-6 sm:w-8 sm:h-8" />, title: "شورتس يوتيوب", description: "مقاطع قصيرة محسّنة لزيادة المشاهدات والمشتركين." },
+    { icon: <Facebook className="w-6 h-6 sm:w-8 sm:h-8" />, title: "قصص فيسبوك", description: "جذب الانتباه بقصص إبداعية مصممة لجمهورك." },
+    { icon: <Twitter className="w-6 h-6 sm:w-8 sm:h-8" />, title: "حملات تيك توك", description: "ابتكر فيديوهات تيك توك فيروسية تصل إلى جمهور واسع." }
   ];
 
   return (
-    <div className="min-h-screen flex flex-col bg-white text-gray-900">
+    <div className="min-h-screen flex flex-col bg-white text-gray-900" dir="rtl">
       <Navigation />
 
       {/* Hero Section */}
@@ -29,15 +29,15 @@ const InehallPublicering = () => {
         <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url(${heroImage})` }} />
         <div className="absolute inset-0 bg-black/50" />
         <div className="relative z-10 text-center text-white max-w-[90%] mx-auto px-2 sm:px-6">
-          <h1 className="text-2xl xs:text-2.5xl sm:text-5xl md:text-6xl font-bold mb-2 xs:mb-3 sm:mb-6">Innehåll & Publicering</h1>
-          <p className="text-sm xs:text-base sm:text-2xl mb-2 xs:mb-3 sm:mb-8">Reels • Shorts • TikTok • Stories</p>
+          <h1 className="text-2xl xs:text-2.5xl sm:text-5xl md:text-6xl font-bold mb-2 xs:mb-3 sm:mb-6">المحتوى والنشر</h1>
+          <p className="text-sm xs:text-base sm:text-2xl mb-2 xs:mb-3 sm:mb-8">ريلز • شورتس • تيك توك • قصص</p>
           <p className="text-xs xs:text-sm sm:text-xl mb-4 xs:mb-5 sm:mb-12 text-gray-200 max-w-[95%] mx-auto">
-            Skapa engagerande innehåll för sociala medier som bygger varumärke och blir viralt. 
-            Vi producerar allt från Instagram Reels till YouTube Shorts och TikTok-trender.
+            نصنع محتوى جذاباً لوسائل التواصل الاجتماعي يبني العلامة التجارية ويصبح رائجاً. 
+            نحن ننتج كل شيء من ريلز إنستغرام إلى شورتس يوتيوب واتجاهات تيك توك.
           </p>
-          <a href="https://wa.me/923214567890" target="_blank" rel="noopener noreferrer">
+          <a href="https://wa.me/46722282221 " target="_blank" rel="noopener noreferrer">
             <button className="w-full xs:w-full sm:w-auto px-4 sm:px-8 py-2 sm:py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-full shadow-lg transition">
-              Kontakta oss idag
+              تواصل معنا اليوم
             </button>
           </a>
         </div>
@@ -47,10 +47,10 @@ const InehallPublicering = () => {
       <section className="py-10 xs:py-12 sm:py-24 px-2 xs:px-4 sm:px-6 bg-gray-50">
         <div className="container mx-auto">
           <h2 className="text-xl xs:text-2xl sm:text-5xl font-bold text-center mb-2 xs:mb-3 sm:mb-6">
-            Våra Tjänster för Innehåll & Publicering
+            خدماتنا للمحتوى والنشر
           </h2>
           <p className="text-xs xs:text-sm sm:text-lg text-center text-gray-600 mb-4 xs:mb-6 sm:mb-16 max-w-[95%] mx-auto">
-            Vi erbjuder ett brett utbud av tjänster för sociala medier – från korta reels till fullständiga kampanjer.
+            نقدم مجموعة واسعة من الخدمات لوسائل التواصل الاجتماعي – من الريلز القصيرة إلى الحملات الكاملة.
           </p>
           <div className="grid grid-cols-1 xs:grid-cols-1 sm:grid-cols-2 gap-3 xs:gap-4 sm:gap-8 max-w-4xl mx-auto">
             {services.map((service, index) => (
@@ -67,9 +67,9 @@ const InehallPublicering = () => {
       {/* Portfolio Section */}
       <section className="py-10 xs:py-12 sm:py-24 px-2 xs:px-4 sm:px-6 bg-gray-100">
         <div className="container mx-auto">
-          <h2 className="text-xl xs:text-2xl sm:text-5xl font-bold text-center mb-2 xs:mb-3 sm:mb-6">Vårt Portfolio</h2>
+          <h2 className="text-xl xs:text-2xl sm:text-5xl font-bold text-center mb-2 xs:mb-3 sm:mb-6">معرض أعمالنا</h2>
           <p className="text-xs xs:text-sm sm:text-lg text-gray-600 text-center mb-4 xs:mb-6 sm:mb-16 max-w-[95%] mx-auto">
-            Här är några av våra framgångsrika projekt för innehåll & publicering.
+            هذه بعض من مشاريعنا الناجحة في المحتوى والنشر.
           </p>
           <div className="grid grid-cols-1 xs:grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 xs:gap-4 sm:gap-8">
             {portfolioItems.map((item, index) => (
@@ -100,14 +100,14 @@ const InehallPublicering = () => {
       <section className="py-10 xs:py-12 sm:py-24 px-2 xs:px-4 sm:px-6 bg-white">
         <div className="container mx-auto text-center">
           <h2 className="text-lg xs:text-xl sm:text-4xl font-bold mb-2 xs:mb-3 sm:mb-8">
-            Vill du växa genom innehåll & publicering?
+            هل تريد أن تنمو من خلال المحتوى والنشر؟
           </h2>
           <p className="text-xs xs:text-sm sm:text-xl text-gray-600 mb-4 xs:mb-6 sm:mb-12 max-w-[95%] mx-auto">
-            Kontakta oss för en kostnadsfri konsultation. Vi hjälper dig att skapa virala videor som driver engagemang och resultat.
+            تواصل معنا للحصول على استشارة مجانية. نساعدك على إنشاء مقاطع فيديو فيروسية تزيد التفاعل والنتائج.
           </p>
-          <a href="https://wa.me/923214567890" target="_blank" rel="noopener noreferrer">
+          <a href="https://wa.me/46722282221 " target="_blank" rel="noopener noreferrer">
             <button className="w-full xs:w-full sm:w-auto px-4 sm:px-8 py-2 sm:py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-full shadow-lg transition">
-              Få kostnadsfri offert
+              احصل على عرض مجاني
             </button>
           </a>
         </div>

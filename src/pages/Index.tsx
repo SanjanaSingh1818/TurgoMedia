@@ -16,53 +16,53 @@ const Index = () => {
   const slides = [
     {
       id: 1,
-      title: "Turgomedia",
-      subtitle: "Kreativ produktion för moderna företag",
-      description: "Vi skapar visuellt innehåll som driver resultat. Från videoproduktion till webbdesign - vi hjälper ditt varumärke att sticka ut och växa.",
+      title: "TurgoMedia",
+      subtitle: "إنتاج إبداعي للشركات الحديثة",
+      description: "نحن نصنع محتوى بصرياً يقود إلى النتائج. من إنتاج الفيديو إلى تصميم المواقع – نساعد علامتك التجارية على التميز والنمو.",
       backgroundImage: heroPhotography,
-      ctaText: "Upptäck våra tjänster",
+      ctaText: "اكتشف خدماتنا",
       ctaLink: "#services"
     },
     {
       id: 2,
-      title: "Videoproduktion",
-      subtitle: "För sociala medier & annonser",
-      description: "Korta och slagkraftiga videor som engagerar, bygger varumärke och driver resultat på alla plattformar.",
+      title: "إنتاج الفيديو",
+      subtitle: "لوسائل التواصل الاجتماعي والإعلانات",
+      description: "مقاطع فيديو قصيرة وقوية تجذب الانتباه، تبني العلامة التجارية وتحقق النتائج على جميع المنصات.",
       backgroundImage: heroVideo,
-      ctaText: "Se våra videor",
+      ctaText: "شاهد مقاطعنا",
       ctaLink: "/videoproduktion"
     },
     {
       id: 3,
-      title: "Sociala Medier",
-      subtitle: "Innehåll och publicering",
-      description: "Vi skapar inte bara innehåll – vi hanterar även dina sociala medier. Vi planerar, producerar och publicerar åt dig.",
+      title: "وسائل التواصل الاجتماعي",
+      subtitle: "المحتوى والنشر",
+      description: "نحن لا ننشئ المحتوى فقط – بل ندير أيضاً حساباتك على وسائل التواصل الاجتماعي. نخطط، ننتج وننشر بالنيابة عنك.",
       backgroundImage: heroSocial,
-      ctaText: "Läs mer om tjänsten",
+      ctaText: "اقرأ المزيد عن الخدمة",
       ctaLink: "/innehall-publicering"
     },
     {
       id: 4,
-      title: "Produktfotografering",
-      subtitle: "Professionella bilder som säljer",
-      description: "Framhäv dina produkter med professionella bilder som ökar försäljningen både online och i butik.",
+      title: "تصوير المنتجات",
+      subtitle: "صور احترافية تزيد المبيعات",
+      description: "أبرز منتجاتك بصور احترافية تزيد من المبيعات سواء عبر الإنترنت أو في المتاجر.",
       backgroundImage: heroProducts,
-      ctaText: "Se vårt portfolio",
+      ctaText: "شاهد أعمالنا",
       ctaLink: "/produktfotografering"
     },
     {
       id: 5,
-      title: "Webbdesign",
-      subtitle: "& utveckling",
-      description: "Responsiva och användarvänliga hemsidor anpassade efter ditt varumärke och målgrupp.",
+      title: "تصميم المواقع",
+      subtitle: "والتطوير",
+      description: "مواقع متجاوبة وسهلة الاستخدام مصممة لتناسب علامتك التجارية وجمهورك المستهدف.",
       backgroundImage: heroWeb,
-      ctaText: "Utforska våra webbsidor",
+      ctaText: "استكشف مواقعنا",
       ctaLink: "/webbdesign"
     }
   ];
 
   return (
-    <div className="relative">
+    <div className="relative" dir="rtl">
       <Navigation />
       <VerticalSlider slides={slides} />
       <ServicesSection />

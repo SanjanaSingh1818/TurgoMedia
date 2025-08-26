@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { FaCubes, FaLifeRing, FaDatabase } from "react-icons/fa";
-import { Link } from "react-router-dom"; // 👈 import Link
+import { Link } from "react-router-dom"; 
 import videoImg from "../assets/images/video.jpg";
 import photographyImg from "../assets/images/photography.jpg";
 import socialImg from "../assets/images/social.jpg";
@@ -9,39 +9,39 @@ import seoImg from "../assets/images/seo.jpg";
 import webdesignImg from "../assets/images/webdesign.jpg";
 
 
-// Service List with updated Swedish content and links
+// قائمة الخدمات بالعربية
 const services = [
   {
-    title: "Videoproduktion för sociala medier & annonser",
-    desc: "Korta och slagkraftiga videor som engagerar, bygger varumärke och driver resultat.",
-    img: videoImg, // 👈 imported image
+    title: "إنتاج الفيديو لوسائل التواصل والإعلانات",
+    desc: "مقاطع فيديو قصيرة وفعّالة تجذب الانتباه، تبني العلامة التجارية وتحقق النتائج.",
+    img: videoImg,
     icon: <FaCubes />,
     link: "/videoproduktion",
   },
   {
-    title: "Innehåll och publicering på sociala medier",
-    desc: "Vi skapar inte bara innehåll – vi hanterar även dina sociala medier. Vi planerar, producerar och publicerar inlägg åt dig, så att du kan fokusera på verksamheten medan vi sköter din digitala närvaro.",
-    img: socialImg ,
+    title: "إدارة ونشر المحتوى على وسائل التواصل",
+    desc: "نحن لا ننشئ المحتوى فقط – بل ندير أيضًا حساباتك على وسائل التواصل الاجتماعي. نقوم بالتخطيط، والإنتاج، والنشر نيابةً عنك، لتتفرغ لأعمالك بينما نهتم بحضورك الرقمي.",
+    img: socialImg,
     icon: <FaLifeRing />,
     link: "/innehall-publicering",
   },
   {
-    title: "Produktfotografering",
-    desc: "Professionella bilder som framhäver dina produkter och ökar försäljningen både online och i butik.",
+    title: "تصوير المنتجات",
+    desc: "صور احترافية تُبرز منتجاتك وتزيد من مبيعاتك سواء عبر الإنترنت أو في المتجر.",
     img: photographyImg,
     icon: <FaDatabase />,
     link: "/produktfotografering",
   },
   {
-    title: "Webbdesign & utveckling",
-    desc: "Responsiva och användarvänliga hemsidor anpassade efter ditt varumärke och målgrupp.",
+    title: "تصميم وتطوير المواقع",
+    desc: "مواقع إلكترونية متجاوبة وسهلة الاستخدام، مصممة بما يتناسب مع علامتك التجارية وجمهورك المستهدف.",
     img: webdesignImg,
     icon: <FaCubes />,
     link: "/webbdesign",
   },
   {
-    title: "SEO & Lokal synlighet",
-    desc: "Vi optimerar din hemsida för att synas högre i Google och hjälper ditt företag att rankas bättre lokalt och bli mer synligt för närliggande kunder.",
+    title: "تحسين محركات البحث والظهور المحلي",
+    desc: "نقوم بتحسين موقعك ليتصدر نتائج البحث على Google، ونساعد شركتك على الظهور بشكل أفضل محليًا والوصول إلى عملاء قريبين منك.",
     img: seoImg,
     icon: <FaLifeRing />,
     link: "/seo-lokal-synlighet",
@@ -49,7 +49,7 @@ const services = [
 ];
 
 
-// Service Card Component
+// بطاقة الخدمة
 const ServiceCard = ({ title, desc, img, icon, link }) => {
   const cardRef = useRef(null);
   const overlayRef = useRef(null);
@@ -90,26 +90,26 @@ const ServiceCard = ({ title, desc, img, icon, link }) => {
   }, []);
 
   return (
-    <Link to={link}> {/* 👈 wrap card with Link */}
+    <Link to={link}>
       <div
         ref={cardRef}
         className="relative rounded-lg overflow-hidden shadow-lg transition-all duration-300 cursor-pointer"
       >
-        {/* Image */}
+        {/* صورة الخلفية */}
         <img src={img} alt={title} className="w-full h-56 object-cover" />
 
-        {/* Overlay */}
+        {/* تدرج لوني */}
         <div
           ref={overlayRef}
           className="absolute inset-0 bg-[#2d2d30] opacity-0 pointer-events-none z-10 transition-opacity"
         />
 
-        {/* Icon */}
+        {/* أيقونة */}
         <div className="absolute top-0 right-0 m-4 w-10 h-10 bg-white rounded-lg flex items-center justify-center shadow-md text-[#5f4c8c] text-lg z-20">
           {icon}
         </div>
 
-        {/* Text Block */}
+        {/* النص */}
         <div
           ref={textRef}
           className="bg-white text-gray-800 p-5 z-20 relative transition-colors duration-300 h-[30vh]"
@@ -122,13 +122,13 @@ const ServiceCard = ({ title, desc, img, icon, link }) => {
   );
 };
 
-// Section Component with Floating Bubbles
+// قسم الخدمات
 export default function ServiceSection() {
   const bgRef = useRef(null);
 
   return (
     <section className="py-16 bg-gray-50 relative overflow-hidden">
-      {/* Floating Bubbles */}
+      {/* فقاعات الخلفية */}
       <div ref={bgRef} className="absolute inset-0 z-0 pointer-events-none">
         {Array.from({ length: 30 }).map((_, i) => {
           const size = 20 + Math.random() * 40;
@@ -157,14 +157,14 @@ export default function ServiceSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
         <div className="text-center mb-12">
           <h2 className="text-4xl md:text-5xl font-bold leading-tight mb-4 relative z-10">
-            <span className="text-black">Vi erbjuder </span>
+            <span className="text-black">نحن نقدم </span>
             <span className="bg-gradient-warm bg-clip-text text-transparent">
-              överlägsna tjänster
+              خدمات مميزة
             </span>
           </h2>
 
           <p className="mt-2 text-gray-600 max-w-xl mx-auto">
-            Din pålitliga källa för nyheter, reportage och aktuella händelser – alltid uppdaterad, alltid relevant.
+            مصدرك الموثوق للأخبار، والتقارير، والأحداث الجارية – دائمًا محدثة ودائمًا ذات صلة.
           </p>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">

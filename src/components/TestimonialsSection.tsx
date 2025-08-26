@@ -31,100 +31,96 @@ import KalimeraLogo from '../assets/kalimera-logo.png';
 const testimonials = [
   {
     logo: PizzeriaLogo,
-    name: 'Pizzeria Mums',
-    role: 'Restaurangvarumärke',
-    text: 'Turgomedia är stolta över att stödja Pizzeria Mums med engagerande videoinnehåll...',
+    name: 'بيتزا مومس',
+    role: 'علامة تجارية للمطاعم',
+    text: 'تورجو ميديا فخورة بدعم بيتزا مومس بمحتوى فيديو مميز وجذاب...',
     link: 'https://pizzeriamums.se',
   },
   {
     logo: SultanLogo,
-    name: 'Sultan Grill',
-    role: 'Mellanösternrestaurang',
-    text: 'Vi samarbetar med Sultan Grill för att stärka deras varumärkesidentitet...',
+    name: 'سلطان جريل',
+    role: 'مطعم شرق أوسطي',
+    text: 'نتعاون مع سلطان جريل لتعزيز هوية علامتهم التجارية...',
     link: 'https://sultangrill.se',
   },
   {
     logo: MobeltvattLogo,
-    name: 'Illos Möbelrekond',
-    role: 'Möbeltvätt',
-    text: 'Turgomedia arbetar nära med Illos Möbelrekond för att öka deras synlighet...',
+    name: 'إيلوس لغسيل الأثاث',
+    role: 'خدمات تنظيف الأثاث',
+    text: 'تعمل تورجو ميديا مع إيلوس لزيادة ظهورهم الرقمي...',
     link: 'https://offert.illosmobelrekond.se/mobeltvatt',
   },
   {
     logo: CityFlyttLogo,
-    name: 'City Flytt',
-    role: 'Flytttjänster',
-    text: 'Vårt team samarbetade med City Flytt för att designa om deras webbplats...',
+    name: 'سيتي فليت',
+    role: 'خدمات نقل',
+    text: 'عمل فريقنا مع سيتي فليت لإعادة تصميم موقعهم الإلكتروني...',
     link: 'https://cityflytt.se',
   },
   {
     logo: ArcusLogo,
-    name: 'Arcus Transport',
-    role: 'Transportföretag',
-    text: 'Turgomedia samarbetar med Arcus Transport för att stärka deras digitala närvaro...',
+    name: 'آركوس للنقل',
+    role: 'شركة نقل',
+    text: 'تتعاون تورجو ميديا مع آركوس للنقل لتعزيز حضورهم الرقمي...',
     link: 'https://arcustransport.se',
   },
   {
     logo: KaroonLogo,
-    name: 'Karoon',
-    role: 'Startup-varumärke',
-    text: 'Vi har levererat ett komplett digitalt lanseringspaket till Karoon...',
+    name: 'كارون',
+    role: 'شركة ناشئة',
+    text: 'قمنا بتقديم حزمة إطلاق رقمي كاملة إلى كارون...',
     link: 'https://karoon.se',
   },
   {
     logo: DunderDonerLogo,
-    name: 'Dunder Doner',
-    role: 'Matleveransplattform',
-    text: 'Vårt team samarbetade med Dunder Doner för att skapa en modern digital närvaro...',
+    name: 'دوندر دونر',
+    role: 'منصة توصيل طعام',
+    text: 'تعاون فريقنا مع دوندر دونر لإنشاء حضور رقمي حديث...',
     link: 'https://dunderdoner.se',
   },
   {
     logo: SteammasterLogo,
-    name: 'Steammaster',
-    role: 'Städtjänster',
-    text: 'Vårt team samarbetade med Steammaster. Resultatet speglar deras fokus på pålitliga och högkvalitativa städtjänster...',
+    name: 'ستيم ماستر',
+    role: 'خدمات تنظيف',
+    text: 'عمل فريقنا مع ستيم ماستر. النتيجة تعكس تركيزهم على الخدمات الموثوقة وعالية الجودة...',
     link: 'https://steammaster.se',
   },
   {
     logo: GrillogardenLogo,
-    name: 'Grillogården',
-    role: 'Restaurang',
-    text: 'Vårt team samarbetade med Grillogården för att skapa en modern digital närvaro...',
+    name: 'غريلوغاردن',
+    role: 'مطعم',
+    text: 'تعاون فريقنا مع غريلوغاردن لإنشاء حضور رقمي حديث...',
     link: 'https://grillogarden.se',
   },
   {
     logo: ChixeeLogo,
-    name: 'Chixee',
-    role: 'Restaurang',
-    text: 'Vi samarbetade med Chixee för att lyfta fram deras passion för krispig fried chicken och en unik matupplevelse...',
+    name: 'شيكسي',
+    role: 'مطعم',
+    text: 'تعاونّا مع شيكسي لإبراز شغفهم بالدجاج المقلي المقرمش وتجربة طعام فريدة...',
     link: 'https://chixee.se',
   },
   {
     logo: HomeLogo,
-    name: 'Hälsosam Hem',
-    role: 'Hemstädning',
-    text: 'Vi samarbetade med Hälsosam Hem för att lyfta fram deras pålitliga och professionella städtjänster...',
+    name: 'منزل صحي',
+    role: 'خدمات تنظيف منزلية',
+    text: 'تعاونّا مع منزل صحي لإبراز خدماتهم الموثوقة والمهنية...',
     link: 'https://halsosamthem.se',
   },
   {
     logo: AlmedalsLogo,
-    name: 'Almedals Flyttexpress',
-    role: 'Flyttfirma',
-    text: 'Vi samarbetade med Almedals Flyttexpress för att stärka deras digitala närvaro...',
+    name: 'ألْميدالس للنقل',
+    role: 'شركة نقل',
+    text: 'عملنا مع ألْميدالس للنقل لتعزيز حضورهم الرقمي...',
     link: 'https://almedalsflyttexpress.se',
   },
   {
     logo: KalimeraLogo,
-    name: 'Kalimerameze Tapas',
-    role: 'Restaurang',
-    text: 'Vi samarbetade med Kalimerameze Tapas för att fånga deras medelhavsmagi och bjudande matupplevelse...',
+    name: 'كالي ميرا ميزه تاباس',
+    role: 'مطعم',
+    text: 'تعاونّا مع كالي ميرا ميزه تاباس لالتقاط سحر البحر الأبيض المتوسط وتجربة طعام مميزة...',
     link: 'https://kalimeramezetapas.se',
   },
 ];
-
-
-// ...rest of your TestimonialSection component remains unchanged
-
 
 const socialIcons = [
   FaFacebookF,
@@ -155,14 +151,12 @@ export default function TestimonialSection() {
 
   return (
     <section
-        id="testimonials"
+      id="testimonials"
+      dir="rtl"
       className="relative z-10 py-20 px-6 text-center text-white bg-gradient-to-br from-[#e5ceb8] to-[#aeaacb] overflow-hidden"
     >
-      {/* Floating Social Icons */}
-      <div
-        ref={bgRef}
-        className="absolute inset-0 z-0 pointer-events-none"
-      >
+      {/* أيقونات التواصل العائمة */}
+      <div ref={bgRef} className="absolute inset-0 z-0 pointer-events-none">
         {Array.from({ length: 20 }).map((_, i) => {
           const IconComponent = socialIcons[i % socialIcons.length];
           const size = 24 + Math.random() * 24;
@@ -183,17 +177,16 @@ export default function TestimonialSection() {
         })}
       </div>
 
-      {/* Content */}
-<h2 className="text-4xl md:text-5xl font-bold leading-tight mb-4 relative z-10">
-  <span className="text-black">Träffa Våra </span>
-  <span className="bg-gradient-warm bg-clip-text text-transparent">
-    Kunder
-  </span>
-</h2>
-
+      {/* العنوان */}
+      <h2 className="text-4xl md:text-5xl font-bold leading-tight mb-4 relative z-10">
+        <span className="text-black">تعرف على </span>
+        <span className="bg-gradient-warm bg-clip-text text-transparent">
+          عملاؤنا
+        </span>
+      </h2>
 
       <p className="text-lg max-w-xl mx-auto text-[#4c5663] mb-12 relative z-10">
-        Turgomedia samarbetar med innovativa varumärken inom flera branscher för att skapa digitala framgångshistorier.
+        تورجو ميديا تتعاون مع علامات تجارية مبتكرة في عدة مجالات لخلق قصص نجاح رقمية.
       </p>
 
       <div className="relative z-10 max-w-6xl mx-auto">
@@ -250,7 +243,7 @@ export default function TestimonialSection() {
         {/* Pagination */}
         <div className="custom-pagination mt-8 flex justify-center gap-2 relative z-10" />
 
-        {/* Navigation Arrows */}
+        {/* أزرار التنقل */}
         <div className="swiper-button-prev z-20 w-10 h-10 bg-white/30 hover:bg-white/50 text-white rounded-full flex items-center justify-center absolute -left-6 top-1/2 -translate-y-1/2">
           <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />

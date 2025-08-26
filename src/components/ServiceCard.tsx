@@ -17,16 +17,16 @@ const ServiceCard = ({ title, description, image, link, featured = false }: Serv
         featured ? 'md:col-span-2 md:row-span-2' : ''
       }`}
     >
-      {/* Background Image */}
+      {/* خلفية الصورة */}
       <div 
         className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
         style={{ backgroundImage: `url(${image})` }}
       />
       
-      {/* Gradient Overlay */}
+      {/* تدرج لوني فوق الصورة */}
       <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
       
-      {/* Content */}
+      {/* المحتوى */}
       <div className={`relative z-10 h-full flex flex-col justify-end p-6 text-white ${
         featured ? 'md:p-12' : ''
       }`}>
@@ -43,7 +43,7 @@ const ServiceCard = ({ title, description, image, link, featured = false }: Serv
         </p>
         
         <div className="flex items-center text-primary-glow font-semibold transition-transform duration-300 group-hover:translate-x-2">
-          <span className="mr-2">Läs mer</span>
+          <span className="mr-2">اقرأ المزيد</span>
           <ArrowRight 
             size={featured ? 24 : 20} 
             className="transition-transform duration-300 group-hover:translate-x-1" 
@@ -51,7 +51,7 @@ const ServiceCard = ({ title, description, image, link, featured = false }: Serv
         </div>
       </div>
       
-      {/* Hover Effect Border */}
+      {/* تأثير الإطار عند التمرير */}
       <div className="absolute inset-0 border-2 border-primary/0 rounded-2xl transition-colors duration-300 group-hover:border-primary/30" />
     </Link>
   );

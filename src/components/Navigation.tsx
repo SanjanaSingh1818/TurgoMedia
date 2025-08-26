@@ -17,20 +17,20 @@ const Navigation = () => {
   }, []);
 
   const serviceItems = [
-    { name: 'Videoproduktion för sociala medier & annonser', path: '/videoproduktion' },
-    { name: 'Innehåll och publicering på sociala medier', path: '/innehall-publicering' },
-    { name: 'Produktfotografering', path: '/produktfotografering' },
-    { name: 'Webbdesign & utveckling', path: '/webbdesign' },
-    { name: 'SEO & Lokal synlighet', path: '/seo-lokal-synlighet' }
+    { name: 'إنتاج الفيديو لوسائل التواصل الاجتماعي والإعلانات', path: '/videoproduktion' },
+    { name: 'المحتوى والنشر على وسائل التواصل الاجتماعي', path: '/innehall-publicering' },
+    { name: 'تصوير المنتجات', path: '/produktfotografering' },
+    { name: 'تصميم وتطوير المواقع', path: '/webbdesign' },
+    { name: 'تحسين محركات البحث والرؤية المحلية', path: '/seo-lokal-synlighet' }
   ];
 
   const mainNavItems = [
-    { name: 'Om Oss', path: '#about' },
-    { name: 'Kunder', path: '#testimonials' },
-    { name: 'Kontakta Oss', path: '#instagram' }
+    { name: 'من نحن', path: '#about' },
+    { name: 'عملاء', path: '#testimonials' },  // ✅ Changed
+    { name: 'تواصل معنا', path: '#instagram' }
   ];
 
-  // 🔥 Fixed scroll handler (works for all section IDs)
+  // 🔥 Scroll handler for section IDs
   const handleNavClick = (path: string) => {
     if (path.startsWith('#')) {
       const element = document.getElementById(path.substring(1));
@@ -54,7 +54,7 @@ const Navigation = () => {
               to="/"
               className="text-2xl font-bold tracking-tight text-white hover:text-[#ed9542] transition-colors"
             >
-              Turgomedia
+              TurgoMedia
             </Link>
 
             {/* Desktop Navigation */}
@@ -66,7 +66,7 @@ const Navigation = () => {
                 onMouseLeave={() => setDropdownOpen(false)}
               >
                 <button className="flex items-center space-x-1 font-medium text-white hover:text-[#ed9542] transition-colors">
-                  <span>Tjänster</span>
+                  <span>خدماتنا</span>
                   <ChevronDown
                     size={16}
                     className={`transition-transform duration-200 ${
@@ -104,13 +104,17 @@ const Navigation = () => {
 
             {/* Right Side */}
             <div className="hidden lg:flex items-center space-x-6">
+              {/* 🔥 Google Translate Widget */}
+              <div id="google_translate_element" className="ml-4"></div>
+
+              {/* Call Button */}
               <a
-                href="tel:923214567890"
+                href="tel:+46707944944"
                 className="flex items-center space-x-2 text-white hover:text-[#ed9542] transition-colors"
               >
                 <Phone size={18} />
                 <span className="text-sm">
-                  Ring oss: <span className="font-bold text-[#ed9542]">923214567890</span>
+                  اتصل بنا: <span className="font-bold text-[#ed9542]">+46-707944944</span>
                 </span>
               </a>
             </div>
@@ -133,7 +137,7 @@ const Navigation = () => {
         >
           <div className="container mx-auto px-6 py-4 space-y-4">
             <div>
-              <div className="text-black font-semibold mb-3">Tjänster</div>
+              <div className="text-black font-semibold mb-3">خدماتنا</div>
               {serviceItems.map((item) => (
                 <Link
                   key={item.path}
@@ -159,13 +163,17 @@ const Navigation = () => {
               </button>
             ))}
 
+            {/* 🔥 Google Translate Widget for Mobile */}
+            <div id="google_translate_element" className="ml-4"></div>
+
+            {/* Call Button */}
             <a
-              href="tel:923214567890"
+              href="tel:46707944944"
               className="flex items-center space-x-2 py-3 text-black hover:text-[#ed9542] transition-colors"
             >
               <Phone size={18} />
               <span className="text-sm">
-                Ring oss: <span className="font-bold text-[#ed9542]">923214567890</span>
+                اتصل بنا: <span className="font-bold text-[#ed9542]">+46-707944944</span>
               </span>
             </a>
           </div>
