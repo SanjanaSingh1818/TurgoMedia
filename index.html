@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="sv">
+<html lang="ar">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -10,43 +10,48 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <!-- Primary Meta Tags -->
-    <title>Turgomedia - Kreativ Byrå för Videoproduktion, Webbdesign & SEO</title>
-    <meta name="description" content="Turgomedia är en kreativ byrå i Sverige som erbjuder professionell videoproduktion, sociala medier, produktfotografering, webbdesign och SEO för att stärka ditt varumärke online." />
-    <meta name="keywords" content="Turgomedia, videoproduktion Sverige, sociala medier byrå, produktfotografering Göteborg, webbdesign, SEO, digital marknadsföring, kreativ byrå" />
+    <title>Turgomedia - وكالة إبداعية لإنتاج الفيديو وتصميم المواقع وSEO</title>
+    <meta name="description" content="Turgomedia هي وكالة إبداعية في السويد تقدم إنتاج فيديو احترافي، وسائل التواصل الاجتماعي، تصوير المنتجات، تصميم المواقع وتحسين محركات البحث لتعزيز علامتك التجارية على الإنترنت." />
+    <meta name="keywords" content="Turgomedia، إنتاج فيديو السويد، وكالة وسائل التواصل الاجتماعي، تصوير المنتجات جوتنبرغ، تصميم المواقع، SEO، التسويق الرقمي، وكالة إبداعية" />
     <meta name="author" content="Turgomedia" />
 
     <!-- Open Graph / Facebook -->
-    <meta property="og:title" content="Turgomedia - Kreativ Byrå för Videoproduktion, Webbdesign & SEO" />
-    <meta property="og:description" content="Vi skapar visuellt innehåll och digitala lösningar som driver resultat för svenska företag. Upptäck vår expertis inom videoproduktion, sociala medier, webbdesign och SEO." />
+    <meta property="og:title" content="Turgomedia - وكالة إبداعية لإنتاج الفيديو وتصميم المواقع وSEO" />
+    <meta property="og:description" content="ننشئ محتوى بصري وحلول رقمية تحقق نتائج للشركات السويدية. اكتشف خبرتنا في إنتاج الفيديو، وسائل التواصل الاجتماعي، تصميم المواقع وSEO." />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://turgomedia.se/" />
     <meta property="og:image" content="https://turgomedia.se/og-image.png" />
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Turgomedia - Kreativ Byrå för Videoproduktion, Webbdesign & SEO" />
-    <meta name="twitter:description" content="Professionell videoproduktion, sociala medier, produktfotografering, webbdesign och SEO. Vi hjälper svenska företag att växa digitalt." />
+    <meta name="twitter:title" content="Turgomedia - وكالة إبداعية لإنتاج الفيديو وتصميم المواقع وSEO" />
+    <meta name="twitter:description" content="إنتاج فيديو احترافي، وسائل التواصل الاجتماعي، تصوير المنتجات، تصميم المواقع وSEO. نحن نساعد الشركات السويدية على النمو رقميًا." />
     <meta name="twitter:image" content="https://turgomedia.se/og-image.png" />
   </head>
 
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
-    <script type="text/javascript">
+
+<!-- Google Translate Initialization -->
+<script type="text/javascript">
   function googleTranslateElementInit() {
     new google.translate.TranslateElement(
       {
-        pageLanguage: 'ar', // 👈 Default language is Arabic
-        includedLanguages: 'en,ar', // 👈 Allow only English & Arabic
+        pageLanguage: 'ar', // Default language is Arabic
+        includedLanguages: 'en,ar', // Only English & Arabic
         layout: google.translate.TranslateElement.InlineLayout.SIMPLE
       },
       'google_translate_element'
     );
   }
 </script>
-<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+<!-- Load Google Translate API securely -->
+<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
 <script>
+  // Function to set text direction
   function setDirection(lang) {
     if (lang === "ar") {
       document.body.setAttribute("dir", "rtl");
@@ -55,14 +60,21 @@
     }
   }
 
-  // Monitor Google Translate changes
-  document.addEventListener("DOMNodeInserted", function(event) {
-    if (event.target.classList && event.target.classList.contains("goog-te-menu-value")) {
-      const selectedLang = event.target.innerText.includes("العربية") ? "ar" : "en";
-      setDirection(selectedLang);
-    }
+  // Use MutationObserver to detect Google Translate language changes
+  const observer = new MutationObserver(mutations => {
+    mutations.forEach(mutation => {
+      mutation.addedNodes.forEach(node => {
+        if (node.classList && node.classList.contains("goog-te-menu-value")) {
+          const selectedLang = node.innerText.includes("العربية") ? "ar" : "en";
+          setDirection(selectedLang);
+        }
+      });
+    });
   });
+
+  observer.observe(document.body, { childList: true, subtree: true });
 </script>
+
 
   </body>
 </html>
