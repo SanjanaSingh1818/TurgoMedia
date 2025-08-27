@@ -1,15 +1,13 @@
-import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 interface ServiceCardProps {
   title: string;
-  description: string;
   image: string;
   link: string;
   featured?: boolean;
 }
 
-const ServiceCard = ({ title, description, image, link, featured = false }: ServiceCardProps) => {
+const ServiceCard = ({ title, image, link, featured = false }: ServiceCardProps) => {
   return (
     <Link 
       to={link}
@@ -35,20 +33,6 @@ const ServiceCard = ({ title, description, image, link, featured = false }: Serv
         }`}>
           {title}
         </h3>
-        
-        <p className={`text-white/90 mb-4 line-clamp-3 transition-transform duration-300 group-hover:translate-y-[-4px] ${
-          featured ? 'text-lg md:text-xl' : 'text-base'
-        }`}>
-          {description}
-        </p>
-        
-        <div className="flex items-center text-primary-glow font-semibold transition-transform duration-300 group-hover:translate-x-2">
-          <span className="mr-2">اقرأ المزيد</span>
-          <ArrowRight 
-            size={featured ? 24 : 20} 
-            className="transition-transform duration-300 group-hover:translate-x-1" 
-          />
-        </div>
       </div>
       
       {/* تأثير الإطار عند التمرير */}

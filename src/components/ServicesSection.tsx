@@ -162,10 +162,6 @@ export default function ServiceSection() {
               خدمات مميزة
             </span>
           </h2>
-
-          <p className="mt-2 text-gray-600 max-w-xl mx-auto">
-            مصدرك الموثوق للأخبار، والتقارير، والأحداث الجارية – دائمًا محدثة ودائمًا ذات صلة.
-          </p>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service, index) => (
