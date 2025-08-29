@@ -34,12 +34,15 @@
     <script type="module" src="/src/main.tsx"></script>
 
 <!-- Google Translate Initialization -->
+<div id="google_translate_element"></div>
+
 <script type="text/javascript">
   function googleTranslateElementInit() {
     new google.translate.TranslateElement(
       {
         pageLanguage: 'ar', // Default language is Arabic
-        includedLanguages: 'en,ar', // Only English & Arabic
+        includedLanguages: 'en,ar,sv,fr,de,hi,es,it,nl,zh-CN,ja,ru', 
+        // add as many as you want (sv = Swedish)
         layout: google.translate.TranslateElement.InlineLayout.SIMPLE
       },
       'google_translate_element'
@@ -51,22 +54,24 @@
 <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
 <script>
-  // Function to set text direction
+  // Function to set text direction automatically
   function setDirection(lang) {
-    if (lang === "ar") {
+    const rtlLanguages = ["ar", "fa", "ur", "he"]; // RTL languages
+    if (rtlLanguages.includes(lang)) {
       document.body.setAttribute("dir", "rtl");
     } else {
       document.body.setAttribute("dir", "ltr");
     }
   }
 
-  // Use MutationObserver to detect Google Translate language changes
+  // Detect changes in the Google Translate dropdown
   const observer = new MutationObserver(mutations => {
     mutations.forEach(mutation => {
       mutation.addedNodes.forEach(node => {
         if (node.classList && node.classList.contains("goog-te-menu-value")) {
-          const selectedLang = node.innerText.includes("العربية") ? "ar" : "en";
-          setDirection(selectedLang);
+          // Auto-detect based on value attribute
+          const langCode = document.querySelector("select.goog-te-combo")?.value;
+          if (langCode) setDirection(langCode);
         }
       });
     });
