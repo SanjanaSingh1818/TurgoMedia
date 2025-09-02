@@ -1,6 +1,6 @@
-import { useState, useEffect } from 'react';
-import { Menu, X, ChevronDown, Phone } from 'lucide-react';
-import { Link, useLocation } from 'react-router-dom';
+import { useState, useEffect } from "react";
+import { Menu, X, ChevronDown, Phone } from "lucide-react";
+import { Link, useLocation } from "react-router-dom";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -12,30 +12,41 @@ const Navigation = () => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
     };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // ✅ Custom Google Translate trigger
+  const doTranslate = (lang: string) => {
+    const select = document.querySelector(
+      ".goog-te-combo"
+    ) as HTMLSelectElement | null;
+    if (select) {
+      select.value = lang;
+      select.dispatchEvent(new Event("change"));
+    }
+  };
+
   const serviceItems = [
-    { name: 'إنتاج الفيديو لوسائل التواصل الاجتماعي والإعلانات', path: '/videoproduktion' },
-    { name: 'المحتوى والنشر على وسائل التواصل الاجتماعي', path: '/innehall-publicering' },
-    { name: 'تصوير المنتجات', path: '/produktfotografering' },
-    { name: 'تصميم وتطوير المواقع', path: '/webbdesign' },
-    { name: 'تحسين محركات البحث والرؤية المحلية', path: '/seo-lokal-synlighet' }
+    { name: "إنتاج الفيديو لوسائل التواصل الاجتماعي والإعلانات", path: "/videoproduktion" },
+    { name: "المحتوى والنشر على وسائل التواصل الاجتماعي", path: "/innehall-publicering" },
+    { name: "تصوير المنتجات", path: "/produktfotografering" },
+    { name: "تصميم وتطوير المواقع", path: "/webbdesign" },
+    { name: "تحسين محركات البحث والرؤية المحلية", path: "/seo-lokal-synlighet" },
   ];
 
   const mainNavItems = [
-    { name: 'من نحن', path: '#about' },
-    { name: 'عملاء', path: '#testimonials' },  // ✅ Changed
-    { name: 'تواصل معنا', path: '#instagram' }
+    { name: "من نحن", path: "#about" },
+    { name: "عملاء", path: "#testimonials" },
+    { name: "تواصل معنا", path: "#instagram" },
   ];
 
   // 🔥 Scroll handler for section IDs
   const handleNavClick = (path: string) => {
-    if (path.startsWith('#')) {
+    if (path.startsWith("#")) {
       const element = document.getElementById(path.substring(1));
       if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
+        element.scrollIntoView({ behavior: "smooth" });
       }
     }
   };
@@ -44,7 +55,9 @@ const Navigation = () => {
     <>
       <nav
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-          scrolled ? 'bg-[#5f4c8c] shadow-[0_4px_6px_-1px_rgba(0,0,0,0.3)]' : 'bg-transparent'
+          scrolled
+            ? "bg-[#5f4c8c] shadow-[0_4px_6px_-1px_rgba(0,0,0,0.3)]"
+            : "bg-transparent"
         }`}
       >
         <div className="container mx-auto px-6 py-4">
@@ -70,7 +83,7 @@ const Navigation = () => {
                   <ChevronDown
                     size={16}
                     className={`transition-transform duration-200 ${
-                      dropdownOpen ? 'rotate-180' : ''
+                      dropdownOpen ? "rotate-180" : ""
                     }`}
                   />
                 </button>
@@ -90,7 +103,7 @@ const Navigation = () => {
                 )}
               </div>
 
-              {/* Main Navigation Items */}
+              {/* Main Nav Items */}
               {mainNavItems.map((item) => (
                 <button
                   key={item.path}
@@ -100,21 +113,40 @@ const Navigation = () => {
                   {item.name}
                 </button>
               ))}
+
+              {/* 🔥 Language Buttons (Desktop) */}
+              <div className="flex items-center gap-3">
+                <button
+                  onClick={() => doTranslate("en")}
+                  className="px-2 py-1 text-sm text-white border border-white rounded hover:bg-white hover:text-[#5f4c8c] transition"
+                >
+                  EN
+                </button>
+                <button
+                  onClick={() => doTranslate("ar")}
+                  className="px-2 py-1 text-sm text-white border border-white rounded hover:bg-white hover:text-[#5f4c8c] transition"
+                >
+                  AR
+                </button>
+                <button
+                  onClick={() => doTranslate("sv")}
+                  className="px-2 py-1 text-sm text-white border border-white rounded hover:bg-white hover:text-[#5f4c8c] transition"
+                >
+                  SV
+                </button>
+              </div>
             </div>
 
-            {/* Right Side */}
+            {/* Right Side - Call */}
             <div className="hidden lg:flex items-center space-x-6">
-              {/* 🔥 Google Translate Widget */}
-              <div id="google_translate_element" className="ml-4"></div>
-
-              {/* Call Button */}
               <a
                 href="tel:+46707944944"
                 className="flex items-center space-x-2 text-white hover:text-[#ed9542] transition-colors"
               >
                 <Phone size={18} />
                 <span className="text-sm">
-                  اتصل بنا: <span className="font-bold text-[#ed9542]">+46-707944944</span>
+                  اتصل بنا:{" "}
+                  <span className="font-bold text-[#ed9542]">+46-707944944</span>
                 </span>
               </a>
             </div>
@@ -132,7 +164,7 @@ const Navigation = () => {
         {/* Mobile Navigation */}
         <div
           className={`lg:hidden transition-all duration-300 ${
-            isOpen ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0'
+            isOpen ? "max-h-screen opacity-100" : "max-h-0 opacity-0"
           } overflow-hidden bg-white/95 backdrop-blur-md`}
         >
           <div className="container mx-auto px-6 py-4 space-y-4">
@@ -163,17 +195,37 @@ const Navigation = () => {
               </button>
             ))}
 
-            {/* 🔥 Google Translate Widget for Mobile */}
-            <div id="google_translate_element" className="ml-4"></div>
+            {/* 🔥 Language Buttons (Mobile) */}
+            <div className="flex items-center gap-3">
+              <button
+                onClick={() => doTranslate("en")}
+                className="px-2 py-1 text-sm border border-black text-black rounded hover:bg-[#5f4c8c] hover:text-white transition"
+              >
+                EN
+              </button>
+              <button
+                onClick={() => doTranslate("ar")}
+                className="px-2 py-1 text-sm border border-black text-black rounded hover:bg-[#5f4c8c] hover:text-white transition"
+              >
+                AR
+              </button>
+              <button
+                onClick={() => doTranslate("sv")}
+                className="px-2 py-1 text-sm border border-black text-black rounded hover:bg-[#5f4c8c] hover:text-white transition"
+              >
+                SV
+              </button>
+            </div>
 
-            {/* Call Button */}
+            {/* Call Button (Mobile) */}
             <a
               href="tel:46707944944"
               className="flex items-center space-x-2 py-3 text-black hover:text-[#ed9542] transition-colors"
             >
               <Phone size={18} />
               <span className="text-sm">
-                اتصل بنا: <span className="font-bold text-[#ed9542]">+46-707944944</span>
+                اتصل بنا:{" "}
+                <span className="font-bold text-[#ed9542]">+46-707944944</span>
               </span>
             </a>
           </div>

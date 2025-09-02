@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -33,53 +33,45 @@
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
 
-<!-- Google Translate Initialization -->
-<div id="google_translate_element"></div>
+    <!-- Google Translate Initialization -->
+    <div id="google_translate_element" style="display: none;"></div>
 
-<script type="text/javascript">
-  function googleTranslateElementInit() {
-    new google.translate.TranslateElement(
-      {
-        pageLanguage: 'ar', // Default language is Arabic
-        includedLanguages: 'en,ar,sv,fr,de,hi,es,it,nl,zh-CN,ja,ru', 
-        // add as many as you want (sv = Swedish)
-        layout: google.translate.TranslateElement.InlineLayout.SIMPLE
-      },
-      'google_translate_element'
-    );
-  }
-</script>
+    <script type="text/javascript">
+      function googleTranslateInit() {
+        new google.translate.TranslateElement(
+          {
+            pageLanguage: "ar",             // default site language
+            includedLanguages: "en,ar,sv",  // restrict to 3
+            autoDisplay: false
+          },
+          "google_translate_element"
+        );
+      }
+    </script>
 
-<!-- Load Google Translate API securely -->
-<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <!-- Load Google Translate API securely -->
+    <script
+      type="text/javascript"
+      src="//translate.google.com/translate_a/element.js?cb=googleTranslateInit"
+    ></script>
 
-<script>
-  // Function to set text direction automatically
-  function setDirection(lang) {
-    const rtlLanguages = ["ar", "fa", "ur", "he"]; // RTL languages
-    if (rtlLanguages.includes(lang)) {
-      document.body.setAttribute("dir", "rtl");
-    } else {
-      document.body.setAttribute("dir", "ltr");
-    }
-  }
+    <script>
+      // Handle RTL/LTR direction dynamically
+      function setDirection(lang) {
+        const rtlLanguages = ["ar", "he"];
+        if (rtlLanguages.includes(lang)) {
+          document.body.setAttribute("dir", "rtl");
+        } else {
+          document.body.setAttribute("dir", "ltr");
+        }
+      }
 
-  // Detect changes in the Google Translate dropdown
-  const observer = new MutationObserver(mutations => {
-    mutations.forEach(mutation => {
-      mutation.addedNodes.forEach(node => {
-        if (node.classList && node.classList.contains("goog-te-menu-value")) {
-          // Auto-detect based on value attribute
-          const langCode = document.querySelector("select.goog-te-combo")?.value;
-          if (langCode) setDirection(langCode);
+      // Watch for language changes
+      document.addEventListener("change", function (e) {
+        if (e.target.classList.contains("goog-te-combo")) {
+          setDirection(e.target.value);
         }
       });
-    });
-  });
-
-  observer.observe(document.body, { childList: true, subtree: true });
-</script>
-
-
+    </script>
   </body>
 </html>
