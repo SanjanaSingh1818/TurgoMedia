@@ -117,22 +117,22 @@ const Navigation = () => {
               {/* 🔥 Language Buttons (Desktop) */}
               <div className="flex items-center gap-3">
                 <button
-                  onClick={() => doTranslate("sv")}
+                  onClick={() => doTranslate("ar")}
                   className="px-2 py-1 text-sm text-white border border-white rounded hover:bg-white hover:text-[#5f4c8c] transition"
                 >
-                  SV
+                  Ar
                 </button>
                 <button
                   onClick={() => doTranslate("en")}
                   className="px-2 py-1 text-sm text-white border border-white rounded hover:bg-white hover:text-[#5f4c8c] transition"
                 >
-                  EN
+                  En
                 </button>
                 <button
-                  onClick={() => doTranslate("ar")}
+                  onClick={() => doTranslate("sv")}
                   className="px-2 py-1 text-sm text-white border border-white rounded hover:bg-white hover:text-[#5f4c8c] transition"
                 >
-                  AR
+                  Sv
                 </button>
               </div>
             </div>
@@ -142,22 +142,22 @@ const Navigation = () => {
               {/* 🔥 Language Buttons (Mobile - next to hamburger) */}
               <div className="flex items-center gap-2 lg:hidden">
                 <button
-                  onClick={() => doTranslate("sv")}
+                  onClick={() => doTranslate("ar")}
                   className="px-2 py-1 text-xs border border-white text-white rounded hover:bg-white hover:text-[#5f4c8c] transition"
                 >
-                  SV
+                  Ar
                 </button>
                 <button
                   onClick={() => doTranslate("en")}
                   className="px-2 py-1 text-xs border border-white text-white rounded hover:bg-white hover:text-[#5f4c8c] transition"
                 >
-                  EN
+                  En
                 </button>
                 <button
-                  onClick={() => doTranslate("ar")}
+                  onClick={() => doTranslate("sv")}
                   className="px-2 py-1 text-xs border border-white text-white rounded hover:bg-white hover:text-[#5f4c8c] transition"
                 >
-                  AR
+                  Sv
                 </button>
               </div>
 
