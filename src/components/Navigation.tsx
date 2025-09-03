@@ -117,6 +117,12 @@ const Navigation = () => {
               {/* 🔥 Language Buttons (Desktop) */}
               <div className="flex items-center gap-3">
                 <button
+                  onClick={() => doTranslate("sv")}
+                  className="px-2 py-1 text-sm text-white border border-white rounded hover:bg-white hover:text-[#5f4c8c] transition"
+                >
+                  SV
+                </button>
+                <button
                   onClick={() => doTranslate("en")}
                   className="px-2 py-1 text-sm text-white border border-white rounded hover:bg-white hover:text-[#5f4c8c] transition"
                 >
@@ -128,36 +134,55 @@ const Navigation = () => {
                 >
                   AR
                 </button>
-                <button
-                  onClick={() => doTranslate("sv")}
-                  className="px-2 py-1 text-sm text-white border border-white rounded hover:bg-white hover:text-[#5f4c8c] transition"
-                >
-                  SV
-                </button>
               </div>
             </div>
 
-            {/* Right Side - Call */}
-            <div className="hidden lg:flex items-center space-x-6">
-              <a
-                href="tel:+46707944944"
-                className="flex items-center space-x-2 text-white hover:text-[#ed9542] transition-colors"
-              >
-                <Phone size={18} />
-                <span className="text-sm">
-                  اتصل بنا:{" "}
-                  <span className="font-bold text-[#ed9542]">+46-707944944</span>
-                </span>
-              </a>
-            </div>
+            {/* Right Side - Call & Mobile Language + Hamburger */}
+            <div className="flex items-center space-x-4">
+              {/* 🔥 Language Buttons (Mobile - next to hamburger) */}
+              <div className="flex items-center gap-2 lg:hidden">
+                <button
+                  onClick={() => doTranslate("sv")}
+                  className="px-2 py-1 text-xs border border-white text-white rounded hover:bg-white hover:text-[#5f4c8c] transition"
+                >
+                  SV
+                </button>
+                <button
+                  onClick={() => doTranslate("en")}
+                  className="px-2 py-1 text-xs border border-white text-white rounded hover:bg-white hover:text-[#5f4c8c] transition"
+                >
+                  EN
+                </button>
+                <button
+                  onClick={() => doTranslate("ar")}
+                  className="px-2 py-1 text-xs border border-white text-white rounded hover:bg-white hover:text-[#5f4c8c] transition"
+                >
+                  AR
+                </button>
+              </div>
 
-            {/* Mobile Menu Button */}
-            <button
-              onClick={() => setIsOpen(!isOpen)}
-              className="lg:hidden p-2 text-white hover:text-[#ed9542] transition-colors"
-            >
-              {isOpen ? <X size={24} /> : <Menu size={24} />}
-            </button>
+              {/* Call Button (Desktop only) */}
+              <div className="hidden lg:flex items-center space-x-6">
+                <a
+                  href="tel:+46707944944"
+                  className="flex items-center space-x-2 text-white hover:text-[#ed9542] transition-colors"
+                >
+                  <Phone size={18} />
+                  <span className="text-sm">
+                    اتصل بنا:{" "}
+                    <span className="font-bold text-[#ed9542]">+46-707944944</span>
+                  </span>
+                </a>
+              </div>
+
+              {/* Mobile Menu Button */}
+              <button
+                onClick={() => setIsOpen(!isOpen)}
+                className="lg:hidden p-2 text-white hover:text-[#ed9542] transition-colors"
+              >
+                {isOpen ? <X size={24} /> : <Menu size={24} />}
+              </button>
+            </div>
           </div>
         </div>
 
@@ -195,29 +220,7 @@ const Navigation = () => {
               </button>
             ))}
 
-            {/* 🔥 Language Buttons (Mobile) */}
-            <div className="flex items-center gap-3">
-              <button
-                onClick={() => doTranslate("en")}
-                className="px-2 py-1 text-sm border border-black text-black rounded hover:bg-[#5f4c8c] hover:text-white transition"
-              >
-                EN
-              </button>
-              <button
-                onClick={() => doTranslate("ar")}
-                className="px-2 py-1 text-sm border border-black text-black rounded hover:bg-[#5f4c8c] hover:text-white transition"
-              >
-                AR
-              </button>
-              <button
-                onClick={() => doTranslate("sv")}
-                className="px-2 py-1 text-sm border border-black text-black rounded hover:bg-[#5f4c8c] hover:text-white transition"
-              >
-                SV
-              </button>
-            </div>
-
-            {/* Call Button (Mobile) */}
+            {/* Call Button (Mobile inside menu) */}
             <a
               href="tel:46707944944"
               className="flex items-center space-x-2 py-3 text-black hover:text-[#ed9542] transition-colors"
